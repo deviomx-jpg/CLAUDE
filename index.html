@@ -116,8 +116,8 @@
 
     /* Float animation for dashboard */
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      0%, 100% { transform: scale(1.05) translateY(0px); }
+      50% { transform: scale(1.05) translateY(-10px); }
     }
 
     /* ─── NAV ─── */
@@ -296,8 +296,8 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 72px;
+      grid-template-columns: 1fr 1.7fr;
+      gap: 44px;
       align-items: center;
       position: relative;
       z-index: 2;
@@ -403,6 +403,9 @@
     .dashboard-wrap {
       position: relative;
       animation: float 6s ease-in-out infinite;
+      transform-origin: left center;
+      margin-left: 32px;
+      margin-top: -64px;
     }
     .dashboard-glow {
       position: absolute;
@@ -1441,7 +1444,7 @@
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-      .dashboard-wrap { order: -1; }
+      .dashboard-wrap { order: -1; margin-left: 0; margin-top: 0; }
       .browser-window { transform: none; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .problems-grid { grid-template-columns: 1fr; }
