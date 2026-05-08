@@ -13,8 +13,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --navy:  #1F3652;
-      --navy2: #162840;
-      --navy3: #0d1e30;
+      --navy2: #1C314A;
+      --navy3: #192B42;
       --gray:  #E6E9EF;
       --gray2: #f0f2f5;
       --white: #FFFFFF;
@@ -158,11 +158,11 @@
       padding: 0;
     }
     nav.scrolled {
-      background: rgba(15, 27, 43, 0.75);
+      background: rgba(31, 54, 82, 0.90);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      box-shadow: 0 1px 40px rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(199,178,139,0.08);
+      box-shadow: 0 1px 40px rgba(21,40,64,0.45);
     }
     .nav-inner {
       display: flex;
@@ -246,13 +246,13 @@
       display: none;
       position: fixed;
       top: 72px; left: 0; right: 0;
-      background: rgba(13,22,36,0.98);
+      background: rgba(25, 43, 66, 0.98);
       backdrop-filter: blur(20px);
       padding: 24px;
       flex-direction: column;
       gap: 20px;
       z-index: 99;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(199,178,139,0.07);
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
@@ -264,7 +264,7 @@
 
     /* ─── HERO ─── */
     #hero {
-      background: var(--navy3);
+      background: linear-gradient(145deg, #1F3652 0%, #1C314A 55%, #192B42 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -294,7 +294,7 @@
     }
     .hero-circle-1 {
       width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(199,178,139,0.18), transparent 60%);
+      background: radial-gradient(circle, rgba(199,178,139,0.22), transparent 60%);
       top: -350px; right: -200px;
       opacity: 1;
     }
@@ -306,7 +306,7 @@
     }
     .hero-circle-3 {
       width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(199,178,139,0.08), transparent 65%);
+      background: radial-gradient(circle, rgba(31,54,82,0.35), transparent 65%);
       bottom: 10%; left: 30%;
       opacity: 1;
     }
@@ -314,8 +314,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
       background-size: 72px 72px;
       mask-image: radial-gradient(ellipse 70% 55% at 65% 40%, rgba(0,0,0,0.8) 0%, transparent 100%);
     }
@@ -324,7 +324,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 200px;
-      background: linear-gradient(to top, var(--navy3), transparent);
+      background: linear-gradient(to top, #192B42, transparent);
     }
     .hero-grid {
       display: grid;
@@ -440,7 +440,7 @@
     .dashboard-glow {
       position: absolute;
       inset: -60px;
-      background: radial-gradient(ellipse at 50% 50%, rgba(199,178,139,0.12) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(199,178,139,0.10) 0%, rgba(31,54,82,0.22) 45%, transparent 65%);
       pointer-events: none;
     }
     /* Reflection edge */
@@ -460,9 +460,9 @@
       overflow: hidden;
       box-shadow:
         0 0 0 1px rgba(255,255,255,0.05) inset,
-        0 48px 120px rgba(0,0,0,0.72),
-        0 20px 48px rgba(0,0,0,0.48),
-        0 0 80px rgba(199,178,139,0.08);
+        0 48px 120px rgba(25,43,66,0.75),
+        0 20px 48px rgba(25,43,66,0.50),
+        0 0 80px rgba(31,54,82,0.18);
       transform: perspective(1400px) rotateX(4deg);
       transform-origin: top center;
       transition: transform .7s var(--ease), box-shadow .5s;
@@ -471,12 +471,12 @@
       transform: perspective(1400px) rotateX(1.5deg);
       box-shadow:
         0 0 0 1px rgba(255,255,255,0.07) inset,
-        0 64px 140px rgba(0,0,0,0.78),
-        0 28px 60px rgba(0,0,0,0.52),
+        0 64px 140px rgba(25,43,66,0.78),
+        0 28px 60px rgba(25,43,66,0.52),
         0 0 100px rgba(199,178,139,0.12);
     }
     .browser-topbar {
-      background: rgba(10,18,30,1);
+      background: rgba(12, 22, 36, 1);
       height: 38px;
       display: flex;
       align-items: center;
@@ -641,7 +641,7 @@
     .problem-card p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
 
     /* ─── SOLUTION ─── */
-    #solution { background: var(--navy3); overflow: hidden; position: relative; border-top: 1px solid rgba(255,255,255,0.05); }
+    #solution { background: linear-gradient(135deg, #1F3652 0%, #1C314A 60%, #192B42 100%); overflow: hidden; position: relative; border-top: 1px solid rgba(199,178,139,0.06); }
     /* Noise on solution */
     #solution::before {
       content: '';
@@ -1063,7 +1063,7 @@
     .phone-ambient-glow {
       position: absolute;
       width: 320px; height: 380px; border-radius: 50%;
-      background: radial-gradient(ellipse at center, rgba(199,178,139,0.15) 0%, transparent 65%);
+      background: radial-gradient(ellipse at center, rgba(199,178,139,0.12) 0%, rgba(31,54,82,0.28) 50%, transparent 70%);
       pointer-events: none; z-index: 0;
       animation: story-glow 5s ease-in-out infinite;
     }
@@ -1073,14 +1073,14 @@
     }
     .phone-story-shell {
       width: 248px; height: 494px;
-      background: linear-gradient(160deg, #0d1e30 0%, #091420 100%);
+      background: linear-gradient(160deg, #1F3652 0%, #1C314A 100%);
       border-radius: 46px;
       border: 5px solid rgba(255,255,255,0.17);
       box-shadow:
-        0 0 0 1px rgba(255,255,255,0.04) inset,
-        0 0 0 1px rgba(0,0,0,0.25),
-        0 64px 120px rgba(31,54,82,0.55),
-        0 24px 48px rgba(0,0,0,0.35);
+        0 0 0 1px rgba(255,255,255,0.06) inset,
+        0 0 0 1px rgba(25,43,66,0.5),
+        0 64px 140px rgba(31,54,82,0.78),
+        0 24px 56px rgba(31,54,82,0.45);
       position: relative; overflow: hidden; z-index: 1;
       animation: story-float 7s ease-in-out infinite;
     }
@@ -1222,9 +1222,11 @@
     .ph-nc-time { font-size: 6.5px; color: rgba(255,255,255,0.22); white-space: nowrap; }
     .ph-slide-img { padding: 0; }
     .ph-slide-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .ph-slide-img-full { padding: 0; display: flex; align-items: center; justify-content: center; background: #1a2f48; }
+    .ph-slide-img-full img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
     /* ─── CTA ─── */
-    #cta { background: var(--navy3); position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); }
+    #cta { background: linear-gradient(145deg, #1C314A 0%, #1F3652 45%, #192B42 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(199,178,139,0.06); }
     /* Noise on CTA */
     #cta::before {
       content: '';
@@ -1248,7 +1250,7 @@
       position: absolute;
       width: 400px; height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(31,54,82,0.5), transparent 65%);
+      background: radial-gradient(circle, rgba(31,54,82,0.7), transparent 65%);
       bottom: -150px; left: 5%;
       pointer-events: none;
     }
@@ -1347,7 +1349,7 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: #0f1e2e;
+      background: #162639;
       padding: 44px 0 20px;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
@@ -2123,34 +2125,8 @@
             </div>
 
             <!-- Slide 2: Documentos -->
-            <div class="phone-story-slide" data-slide="2">
-              <div class="ph-status">
-                <span class="ph-time">9:41</span>
-                <div class="ph-battery"><div class="ph-batt-icon"><div class="ph-batt-fill"></div></div><div class="ph-batt-tip"></div></div>
-              </div>
-              <div class="ph-screen-header">
-                <div class="ph-screen-title">Mis documentos</div>
-                <div class="ph-screen-sub">3 archivos · Torre Reforma</div>
-              </div>
-              <div class="ph-doc-item">
-                <div class="ph-doc-icon pdf"><svg fill="none" stroke="#ef4444" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-                <div><div class="ph-doc-name">Contrato de compraventa</div><div class="ph-doc-size">2.4 MB · PDF</div></div>
-                <div class="ph-doc-badge">Firmado</div>
-              </div>
-              <div class="ph-doc-item">
-                <div class="ph-doc-icon pdf"><svg fill="none" stroke="#ef4444" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-                <div><div class="ph-doc-name">Escrituras notariales</div><div class="ph-doc-size">5.1 MB · PDF</div></div>
-                <div class="ph-doc-badge">Firmado</div>
-              </div>
-              <div class="ph-doc-item">
-                <div class="ph-doc-icon zip"><svg fill="none" stroke="#C7B28B" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div>
-                <div><div class="ph-doc-name">Planos de unidad A-401</div><div class="ph-doc-size">8.7 MB · ZIP</div></div>
-                <div class="ph-doc-badge">Listo</div>
-              </div>
-              <div class="ph-notif">
-                <div class="ph-notif-dot"></div>
-                <div class="ph-notif-text">Documentos firmados y disponibles para descarga.</div>
-              </div>
+            <div class="phone-story-slide ph-slide-img" data-slide="2">
+              <img src="Assets/App Mobile/App_Mobile_docsc.png" alt="Documentos" draggable="false" />
             </div>
 
             <!-- Slide 3: Notificaciones -->
