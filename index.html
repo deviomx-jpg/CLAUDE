@@ -453,258 +453,64 @@
       filter: blur(16px);
       pointer-events: none;
     }
-    .dashboard {
-      background: rgba(8,17,28,0.95);
+    /* ─── BROWSER WINDOW (screenshot real) ─── */
+    .browser-window {
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
       overflow: hidden;
       box-shadow:
-        0 0 0 1px rgba(255,255,255,0.04) inset,
-        0 40px 100px rgba(0,0,0,0.6),
-        0 12px 32px rgba(0,0,0,0.4);
-      position: relative;
-      backdrop-filter: blur(20px);
+        0 0 0 1px rgba(255,255,255,0.05) inset,
+        0 48px 120px rgba(0,0,0,0.72),
+        0 20px 48px rgba(0,0,0,0.48),
+        0 0 80px rgba(199,178,139,0.08);
+      transform: perspective(1400px) rotateX(4deg);
+      transform-origin: top center;
+      transition: transform .7s var(--ease), box-shadow .5s;
     }
-    .dash-topbar {
-      background: rgba(255,255,255,0.03);
-      padding: 12px 16px;
+    .browser-window:hover {
+      transform: perspective(1400px) rotateX(1.5deg);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.07) inset,
+        0 64px 140px rgba(0,0,0,0.78),
+        0 28px 60px rgba(0,0,0,0.52),
+        0 0 100px rgba(199,178,139,0.12);
+    }
+    .browser-topbar {
+      background: rgba(10,18,30,1);
+      height: 38px;
       display: flex;
       align-items: center;
-      gap: 6px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 0 14px;
+      gap: 7px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
     }
-    .dash-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dash-dot.r { background: #ff5f57; }
-    .dash-dot.y { background: #febc2e; }
-    .dash-dot.g { background: #28c840; }
-    .dash-topbar-title {
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .browser-dot.r { background: #ff5f57; }
+    .browser-dot.y { background: #febc2e; }
+    .browser-dot.g { background: #28c840; }
+    .browser-url {
       flex: 1;
-      text-align: center;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 5px 12px;
       font-size: 11px;
-      color: rgba(255,255,255,0.25);
-      font-weight: 500;
-      letter-spacing: .02em;
-      margin-left: -28px;
-    }
-    .dash-body { display: flex; height: 360px; }
-    .dash-sidebar {
-      width: 48px;
-      background: rgba(255,255,255,0.02);
-      border-right: 1px solid rgba(255,255,255,0.06);
-      padding: 16px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-    .dash-nav-icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .dash-nav-icon.active {
-      background: rgba(199,178,139,0.15);
-      box-shadow: 0 0 0 1px rgba(199,178,139,0.2);
-    }
-    .dash-nav-icon:not(.active):hover { background: rgba(255,255,255,0.05); }
-    .dash-nav-icon svg { width: 15px; height: 15px; }
-    .dash-main {
-      flex: 1;
-      padding: 18px 16px;
+      color: rgba(255,255,255,0.3);
+      font-family: inherit;
+      text-align: center;
+      white-space: nowrap;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .dash-header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .dash-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.9);
+      text-overflow: ellipsis;
       letter-spacing: .01em;
+      margin: 0 10px;
     }
-    .dash-subtitle { font-size: 9px; color: rgba(255,255,255,0.3); margin-top: 1px; }
-    .dash-badge-live {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(74,222,128,0.08);
-      border: 1px solid rgba(74,222,128,0.2);
-      border-radius: 100px;
-      padding: 3px 8px;
-    }
-    .dash-live-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: #4ade80;
-      animation: pulse-dot 1.5s ease-in-out infinite;
-    }
-    .dash-live-text { font-size: 8px; color: #4ade80; font-weight: 600; letter-spacing: .04em; }
-    .kpi-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-    .kpi-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 10px;
-      padding: 12px 10px;
-      transition: border-color .2s, background .2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .kpi-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(199,178,139,0.3), transparent);
-    }
-    .kpi-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(199,178,139,0.2); }
-    .kpi-label {
-      font-size: 8.5px;
-      color: rgba(255,255,255,0.35);
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-    .kpi-value {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 5px;
-    }
-    .kpi-delta {
-      display: inline-flex;
-      align-items: center;
-      gap: 2px;
-      font-size: 8.5px;
-      color: #4ade80;
-      font-weight: 600;
-      background: rgba(74,222,128,0.1);
-      padding: 2px 5px;
-      border-radius: 4px;
-    }
-    .kpi-delta.neutral { color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.05); }
-    .dash-row-2 {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 10px;
-      flex: 1;
-      min-height: 0;
-    }
-    .dash-table {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 10px;
-      padding: 12px;
-      overflow: hidden;
-    }
-    .dash-table-header {
-      display: grid;
-      grid-template-columns: 1.8fr 1fr 1.2fr 1fr;
-      gap: 4px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 4px;
-    }
-    .dash-th {
-      font-size: 8px;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      color: rgba(255,255,255,0.25);
-      font-weight: 600;
-    }
-    .dash-row {
-      display: grid;
-      grid-template-columns: 1.8fr 1fr 1.2fr 1fr;
-      gap: 4px;
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      align-items: center;
-    }
-    .dash-row:last-child { border-bottom: none; }
-    .dash-td { font-size: 9px; color: rgba(255,255,255,0.6); }
-    .dash-td.bold { font-weight: 600; color: rgba(255,255,255,0.9); font-family: 'SF Mono', monospace; font-size: 8.5px; }
-    .status-pill {
-      display: inline-block;
-      font-size: 7.5px;
-      font-weight: 600;
-      padding: 2px 6px;
-      border-radius: 100px;
-      letter-spacing: .02em;
-    }
-    .status-pill.sold { background: rgba(74,222,128,.12); color: #4ade80; border: 1px solid rgba(74,222,128,.2); }
-    .status-pill.avail { background: rgba(199,178,139,.12); color: var(--gold); border: 1px solid rgba(199,178,139,.2); }
-    .status-pill.res { background: rgba(139,168,199,.12); color: #8ba8c7; border: 1px solid rgba(139,168,199,.2); }
-    .dash-chart {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 10px;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .chart-header { display: flex; justify-content: space-between; align-items: flex-start; }
-    .chart-label {
-      font-size: 8.5px;
-      color: rgba(255,255,255,0.35);
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      font-weight: 600;
-    }
-    .chart-total {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      line-height: 1;
-    }
-    .chart-total-delta { font-size: 8px; color: #4ade80; margin-top: 2px; font-weight: 600; }
-    .chart-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 4px;
-      flex: 1;
-      min-height: 60px;
-    }
-    .chart-bar-wrap {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      height: 80px;
-      justify-content: flex-end;
-    }
-    .chart-bar {
+    .browser-screen {
       width: 100%;
-      border-radius: 3px 3px 0 0;
-      background: linear-gradient(to top, rgba(199,178,139,0.9), rgba(199,178,139,0.3));
-      transition: height 1s var(--ease);
-      position: relative;
-    }
-    .chart-bar.active {
-      background: linear-gradient(to top, var(--gold), rgba(199,178,139,0.6));
-      box-shadow: 0 0 8px rgba(199,178,139,0.3);
-    }
-    .chart-bar-lbl {
-      font-size: 7px;
-      color: rgba(255,255,255,0.25);
-      font-weight: 500;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      vertical-align: bottom;
     }
 
     /* ─── STATS STRIP ─── */
@@ -769,16 +575,29 @@
     .section-sub { font-size: 17px; color: var(--text-muted); max-width: 520px; line-height: 1.75; font-weight: 400; }
 
     /* ─── PROBLEMS ─── */
-    #problems { background: var(--gray2); position: relative; overflow: hidden; }
+    #problems {
+      background-color: var(--gray2);
+      background-image:
+        radial-gradient(ellipse at 88% -5%, rgba(199,178,139,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 10% 110%, rgba(31,54,82,0.05) 0%, transparent 45%),
+        linear-gradient(rgba(31,54,82,0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31,54,82,0.032) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 56px 56px, 56px 56px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(31,54,82,0.06);
+    }
     #problems::before {
       content: '';
       position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(31,54,82,0.04), transparent 70%);
-      top: -200px; right: -100px;
+      inset: 0;
+      opacity: .022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
       pointer-events: none;
+      z-index: 0;
     }
+    #problems .container { position: relative; z-index: 1; }
     .problems-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -822,7 +641,7 @@
     .problem-card p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
 
     /* ─── SOLUTION ─── */
-    #solution { background: var(--navy3); overflow: hidden; position: relative; }
+    #solution { background: var(--navy3); overflow: hidden; position: relative; border-top: 1px solid rgba(255,255,255,0.05); }
     /* Noise on solution */
     #solution::before {
       content: '';
@@ -902,7 +721,28 @@
     .sol-card-sub { font-size: 12px; color: rgba(255,255,255,0.45); }
 
     /* ─── FEATURES ─── */
-    #features { background: var(--white); }
+    #features {
+      background-color: var(--white);
+      background-image:
+        radial-gradient(ellipse at 92% 0%, rgba(199,178,139,0.08) 0%, transparent 48%),
+        radial-gradient(ellipse at 5% 100%, rgba(31,54,82,0.04) 0%, transparent 42%),
+        radial-gradient(rgba(31,54,82,0.048) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 28px 28px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(31,54,82,0.07);
+    }
+    #features::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #features .container { position: relative; z-index: 1; }
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -953,7 +793,29 @@
     .feature-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.75; }
 
     /* ─── HOW IT WORKS ─── */
-    #how { background: var(--gray2); position: relative; overflow: hidden; }
+    #how {
+      background-color: var(--gray2);
+      background-image:
+        radial-gradient(ellipse at 50% -15%, rgba(199,178,139,0.11) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 115%, rgba(31,54,82,0.05) 0%, transparent 45%),
+        linear-gradient(rgba(31,54,82,0.038) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31,54,82,0.038) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(31,54,82,0.06);
+    }
+    #how::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #how .container { position: relative; z-index: 1; }
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1005,7 +867,28 @@
     .step p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
 
     /* ─── BENEFITS DEVS ─── */
-    #benefits-dev { background: var(--white); }
+    #benefits-dev {
+      background-color: var(--white);
+      background-image:
+        radial-gradient(ellipse at 0% 50%, rgba(31,54,82,0.045) 0%, transparent 45%),
+        radial-gradient(ellipse at 100% 50%, rgba(199,178,139,0.08) 0%, transparent 50%),
+        radial-gradient(rgba(31,54,82,0.048) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 28px 28px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(31,54,82,0.07);
+    }
+    #benefits-dev::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #benefits-dev .container { position: relative; z-index: 1; }
     .benefits-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1081,118 +964,267 @@
       color: rgba(255,255,255,0.4);
     }
 
-    /* ─── BENEFITS CLIENTS ─── */
-    #benefits-client { background: var(--gray); }
-    .client-grid {
+    /* ─── APP SCROLL STORY ─── */
+    #benefits-client {
+      background-color: var(--gray);
+      background-image:
+        radial-gradient(ellipse at 100% 0%, rgba(199,178,139,0.1) 0%, transparent 52%),
+        radial-gradient(ellipse at 0% 100%, rgba(31,54,82,0.05) 0%, transparent 45%),
+        linear-gradient(rgba(31,54,82,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31,54,82,0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 56px 56px, 56px 56px;
+      position: relative;
+      overflow: clip;
+      border-top: 1px solid rgba(31,54,82,0.06);
+      padding: 0;
+    }
+    #benefits-client::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .app-story { height: 350vh; position: relative; }
+    .app-story-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
-    }
-    .phone-wrap {
-      display: flex;
-      justify-content: center;
-    }
-    .phone {
-      width: 220px;
-      height: 440px;
-      background: var(--navy);
-      border-radius: 40px;
-      border: 6px solid rgba(255,255,255,0.15);
-      box-shadow: 0 40px 80px rgba(31,54,82,0.35), inset 0 0 0 1px rgba(255,255,255,0.05);
-      position: relative;
-      overflow: hidden;
-    }
-    .phone-notch {
-      width: 80px;
-      height: 24px;
-      background: rgba(0,0,0,0.6);
-      border-radius: 0 0 16px 16px;
+      max-width: 1120px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
+      padding: 0 24px;
     }
-    .phone-screen {
-      padding: 12px 14px 0;
-    }
-    .phone-status {
+    /* LEFT */
+    .app-story-left {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 32px;
+      position: relative;
+    }
+    .app-story-head .tag { display: inline-block; }
+    .app-story-head .section-title { margin-top: 8px; color: var(--navy); }
+    .app-story-panels { position: relative; min-height: 320px; }
+    .app-panel {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .55s var(--ease), transform .55s var(--ease);
+      pointer-events: none;
+    }
+    .app-panel.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .app-panel-num {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 13px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      border: 1.5px solid rgba(199,178,139,0.45);
+      margin-bottom: 14px;
+      box-shadow: 0 0 16px rgba(199,178,139,0.12);
+    }
+    .app-panel h3 {
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
       margin-bottom: 12px;
     }
-    .ps-time { font-size: 10px; font-weight: 700; color: var(--white); }
-    .ps-icons { display: flex; gap: 4px; align-items: center; }
-    .ps-icon { width: 14px; height: 8px; border: 1.5px solid rgba(255,255,255,0.6); border-radius: 2px; position: relative; }
-    .ps-icon::after { content:''; position:absolute; top:1px; left:1px; bottom:1px; width:60%; background:rgba(255,255,255,0.6); border-radius:1px; }
-    .phone-header-text { font-size: 11px; font-weight: 700; color: var(--white); margin-bottom: 2px; }
-    .phone-sub-text { font-size: 9px; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
-    .phone-unit-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
+    .app-panel > p { font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 380px; }
+    .app-panel-features { display: flex; flex-direction: column; gap: 9px; margin-top: 18px; }
+    .app-panel-feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13.5px; color: var(--text-dark); font-weight: 500;
     }
-    .puc-title { font-size: 9px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-    .puc-progress-bar {
-      height: 4px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 100px;
-      margin-bottom: 6px;
+    .app-panel-feature svg { width: 15px; height: 15px; stroke: var(--gold2); flex-shrink: 0; }
+    /* Story dots */
+    .story-dots { display: flex; gap: 8px; align-items: center; margin-top: 12px; }
+    .story-dot {
+      width: 6px; height: 6px; border-radius: 100px;
+      background: rgba(31,54,82,0.2);
+      transition: all .45s var(--ease);
+      cursor: pointer;
     }
-    .puc-progress-fill {
-      height: 100%;
-      border-radius: 100px;
-      background: linear-gradient(90deg, var(--gold), rgba(199,178,139,0.5));
+    .story-dot.active { background: var(--gold); width: 22px; box-shadow: 0 0 8px rgba(199,178,139,0.35); }
+    /* RIGHT: Phone */
+    .app-story-right {
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
     }
-    .puc-stats { display: flex; justify-content: space-between; }
-    .puc-stat-label { font-size: 8px; color: rgba(255,255,255,0.35); }
-    .puc-stat-val { font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.75); }
-    .phone-payment-card {
-      background: rgba(199,178,139,0.12);
-      border: 1px solid rgba(199,178,139,0.2);
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
+    .phone-ambient-glow {
+      position: absolute;
+      width: 320px; height: 380px; border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(199,178,139,0.15) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+      animation: story-glow 5s ease-in-out infinite;
     }
-    .ppc-label { font-size: 8px; color: var(--gold); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; font-weight: 600; }
-    .ppc-amount { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
-    .ppc-due { font-size: 8px; color: rgba(255,255,255,0.4); margin-top: 2px; }
-    .phone-notif {
+    @keyframes story-glow {
+      0%, 100% { opacity: .7; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+    .phone-story-shell {
+      width: 248px; height: 494px;
+      background: linear-gradient(160deg, #0d1e30 0%, #091420 100%);
+      border-radius: 46px;
+      border: 5px solid rgba(255,255,255,0.17);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 0 0 1px rgba(0,0,0,0.25),
+        0 64px 120px rgba(31,54,82,0.55),
+        0 24px 48px rgba(0,0,0,0.35);
+      position: relative; overflow: hidden; z-index: 1;
+      animation: story-float 7s ease-in-out infinite;
+    }
+    @keyframes story-float {
+      0%, 100% { transform: translateY(0) rotate(.3deg); }
+      40% { transform: translateY(-8px) rotate(-.2deg); }
+      70% { transform: translateY(-4px) rotate(.4deg); }
+    }
+    .phone-story-shell::before {
+      content: '';
+      position: absolute; top: 0; left: 12%; right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+      z-index: 10;
+    }
+    .phone-story-shell::after {
+      content: '';
+      position: absolute; top: 10%; bottom: 10%; left: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.07), transparent);
+      z-index: 10;
+    }
+    .phone-status-bar {
+      height: 46px;
+      background: #1F3652;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 16px 7px;
+      position: relative;
+      z-index: 5;
+      flex-shrink: 0;
+    }
+    .ph-sb-notch {
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 88px; height: 26px;
+      background: #000;
+      border-radius: 0 0 18px 18px;
+    }
+    .ph-sb-time {
+      font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: .01em;
+      flex: 1; position: relative; z-index: 1;
+    }
+    .ph-sb-icons {
+      display: flex; align-items: center; gap: 5px;
+      position: relative; z-index: 1;
+    }
+    .phone-story-slides { position: absolute; inset: 0; top: 46px; }
+    .phone-story-slide {
+      position: absolute; inset: 0;
+      padding: 12px 16px;
+      opacity: 0;
+      transform: scale(.96) translateY(10px);
+      transition: opacity .6s var(--ease), transform .6s var(--ease);
+    }
+    .phone-story-slide.active { opacity: 1; transform: scale(1) translateY(0); }
+    .phone-reflection {
+      position: absolute;
+      bottom: -22px; left: 18%; right: 18%; height: 22px;
+      background: radial-gradient(ellipse at center, rgba(199,178,139,0.2) 0%, transparent 70%);
+      filter: blur(8px);
+      pointer-events: none; z-index: 0;
+    }
+    /* Phone UI atoms */
+    .ph-status { display: none; }
+    .ph-time { font-size: 10px; font-weight: 700; color: var(--white); }
+    .ph-battery { display: flex; align-items: center; gap: 2px; }
+    .ph-batt-icon { width: 16px; height: 8px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 2px; padding: 1px; }
+    .ph-batt-fill { height: 100%; width: 70%; background: rgba(255,255,255,0.6); border-radius: 1px; }
+    .ph-batt-tip { width: 2px; height: 4px; background: rgba(255,255,255,0.4); border-radius: 1px; }
+    .ph-screen-header { margin-bottom: 13px; }
+    .ph-screen-title { font-size: 12px; font-weight: 700; color: var(--white); }
+    .ph-screen-sub { font-size: 9px; color: rgba(255,255,255,0.38); margin-top: 2px; }
+    .ph-progress-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 13px; margin-bottom: 9px;
+    }
+    .ph-card-title { font-size: 8.5px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .05em; }
+    .ph-prog-bar { height: 5px; background: rgba(255,255,255,0.08); border-radius: 100px; margin-bottom: 8px; overflow: hidden; }
+    .ph-prog-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--gold), rgba(199,178,139,0.55)); }
+    .ph-mini-stats { display: flex; justify-content: space-between; }
+    .ph-mini-stat-l { font-size: 7.5px; color: rgba(255,255,255,0.32); margin-bottom: 2px; }
+    .ph-mini-stat-v { font-size: 9.5px; font-weight: 600; color: rgba(255,255,255,0.8); }
+    .ph-payment-card {
+      background: rgba(199,178,139,0.1); border: 1px solid rgba(199,178,139,0.22);
+      border-radius: 12px; padding: 13px; margin-bottom: 9px;
+    }
+    .ph-pay-label { font-size: 8px; color: var(--gold); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; margin-bottom: 4px; }
+    .ph-pay-amount { font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
+    .ph-pay-due { font-size: 8px; color: rgba(255,255,255,0.38); margin-top: 3px; }
+    .ph-statement { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; overflow: hidden; margin-bottom: 9px; }
+    .ph-stmt-row { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .ph-stmt-row:last-child { border-bottom: none; }
+    .ph-stmt-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .ph-stmt-dot.paid { background: #4ade80; }
+    .ph-stmt-dot.pending { background: var(--gold); }
+    .ph-stmt-info { flex: 1; }
+    .ph-stmt-name { font-size: 8.5px; font-weight: 600; color: rgba(255,255,255,0.85); }
+    .ph-stmt-date { font-size: 7.5px; color: rgba(255,255,255,0.3); }
+    .ph-stmt-amount { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.7); }
+    .ph-doc-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 10px 12px; margin-bottom: 7px; }
+    .ph-doc-icon { width: 30px; height: 30px; min-width: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .ph-doc-icon.pdf { background: rgba(239,68,68,0.14); }
+    .ph-doc-icon.zip { background: rgba(199,178,139,0.12); }
+    .ph-doc-icon svg { width: 13px; height: 13px; }
+    .ph-doc-name { font-size: 8.5px; font-weight: 600; color: rgba(255,255,255,0.85); }
+    .ph-doc-size { font-size: 7.5px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+    .ph-doc-badge { margin-left: auto; font-size: 7px; font-weight: 700; padding: 2px 6px; border-radius: 100px; background: rgba(74,222,128,0.12); color: #4ade80; white-space: nowrap; }
+    .ph-notif { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+    .ph-notif-dot { width: 7px; height: 7px; min-width: 7px; border-radius: 50%; background: #4ade80; flex-shrink: 0; }
+    .ph-notif-text { font-size: 8px; color: rgba(255,255,255,0.52); line-height: 1.4; }
+    /* Notification cards (slide 3) */
+    .ph-notif-card {
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.09);
       border-radius: 10px;
-      padding: 10px 12px;
+      padding: 7px 10px;
+      margin-bottom: 5px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .phone-notif-dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; background: #4ade80; }
-    .phone-notif-text { font-size: 8px; color: rgba(255,255,255,0.55); line-height: 1.4; }
-    .client-benefits { display: flex; flex-direction: column; gap: 20px; }
-    .client-benefit {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
+    .ph-nc-icon {
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
     }
-    .cb-num {
-      width: 36px; height: 36px;
-      min-width: 36px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 14px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--gold);
-    }
-    .cb-content h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .cb-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .ph-nc-icon svg { width: 11px; height: 11px; }
+    .ph-nc-icon.gold { background: rgba(199,178,139,0.15); }
+    .ph-nc-icon.green { background: rgba(74,222,128,0.12); }
+    .ph-nc-icon.blue { background: rgba(96,165,250,0.12); }
+    .ph-nc-icon.navy { background: rgba(31,54,82,0.5); border: 1px solid rgba(255,255,255,0.08); }
+    .ph-nc-body { flex: 1; min-width: 0; }
+    .ph-nc-title { font-size: 8px; font-weight: 700; color: rgba(255,255,255,0.88); margin-bottom: 1px; }
+    .ph-nc-desc { font-size: 7px; color: rgba(255,255,255,0.4); line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ph-nc-time { font-size: 6.5px; color: rgba(255,255,255,0.22); white-space: nowrap; }
+    .ph-slide-img { padding: 0; }
+    .ph-slide-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 
     /* ─── CTA ─── */
-    #cta { background: var(--navy3); position: relative; overflow: hidden; }
+    #cta { background: var(--navy3); position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); }
     /* Noise on CTA */
     #cta::before {
       content: '';
@@ -1443,9 +1475,7 @@
       .hamburger { display: flex; }
       .hero-grid { grid-template-columns: 1fr; gap: 48px; }
       .dashboard-wrap { order: -1; }
-      .kpi-row { grid-template-columns: repeat(2, 1fr); }
-      .dash-row-2 { grid-template-columns: 1fr; }
-      .dash-chart { display: none; }
+      .browser-window { transform: none; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .problems-grid { grid-template-columns: 1fr; }
       .solution-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -1454,8 +1484,14 @@
       .steps::before { display: none; }
       .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
       .metrics-panel { order: -1; }
-      .client-grid { grid-template-columns: 1fr; gap: 48px; }
-      .phone-wrap { order: -1; }
+      .app-story { height: auto; }
+      .app-story-sticky { position: static; height: auto; grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
+      .app-story-panels { min-height: 0; }
+      .app-panel { position: static; opacity: 1; transform: none; pointer-events: auto; display: none; }
+      .app-panel.active { display: block; }
+      .app-story-right { order: -1; }
+      .phone-story-shell { animation: none; transform: none; }
+      .phone-ambient-glow { display: none; }
       .cta-inner { grid-template-columns: 1fr; gap: 48px; }
       .footer-grid { grid-template-columns: 1fr; gap: 36px; }
       .footer-nav { justify-content: flex-start; }
@@ -1589,116 +1625,20 @@
       <!-- DASHBOARD MOCKUP -->
       <div class="dashboard-wrap anim anim-delay-2">
         <div class="dashboard-glow"></div>
-        <div class="dashboard">
-          <div class="dash-topbar">
-            <div class="dash-dot r"></div>
-            <div class="dash-dot y"></div>
-            <div class="dash-dot g"></div>
-            <span class="dash-topbar-title">devio — Torre Reforma</span>
+        <div class="browser-window">
+          <div class="browser-topbar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <div class="browser-url">app.devio.mx — Torre Reforma</div>
           </div>
-          <div class="dash-body">
-            <div class="dash-sidebar">
-              <div class="dash-nav-icon active">
-                <svg fill="none" stroke="rgba(199,178,139,0.9)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-              </div>
-              <div class="dash-nav-icon">
-                <svg fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-              </div>
-              <div class="dash-nav-icon">
-                <svg fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-              </div>
-              <div class="dash-nav-icon">
-                <svg fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.8" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-              </div>
-              <div class="dash-nav-icon">
-                <svg fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.8" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              </div>
-            </div>
-            <div class="dash-main">
-              <div class="dash-header-row">
-                <div>
-                  <div class="dash-title">Torre Reforma</div>
-                  <div class="dash-subtitle">Mayo 2026 · Ciudad de México</div>
-                </div>
-                <div class="dash-badge-live">
-                  <div class="dash-live-dot"></div>
-                  <span class="dash-live-text">En vivo</span>
-                </div>
-              </div>
-              <div class="kpi-row">
-                <div class="kpi-card">
-                  <div class="kpi-label">Total unidades</div>
-                  <div class="kpi-value">84</div>
-                  <span class="kpi-delta">↑ 6 este mes</span>
-                </div>
-                <div class="kpi-card">
-                  <div class="kpi-label">Vendidas</div>
-                  <div class="kpi-value">61</div>
-                  <span class="kpi-delta">72.6%</span>
-                </div>
-                <div class="kpi-card">
-                  <div class="kpi-label">Ingresos</div>
-                  <div class="kpi-value">$4.2M</div>
-                  <span class="kpi-delta">↑ 18%</span>
-                </div>
-                <div class="kpi-card">
-                  <div class="kpi-label">Avance obra</div>
-                  <div class="kpi-value">78%</div>
-                  <span class="kpi-delta neutral">En plazo</span>
-                </div>
-              </div>
-              <div class="dash-row-2">
-                <div class="dash-table">
-                  <div class="dash-table-header">
-                    <div class="dash-th">Unidad</div>
-                    <div class="dash-th">Tipo</div>
-                    <div class="dash-th">Precio</div>
-                    <div class="dash-th">Estado</div>
-                  </div>
-                  <div class="dash-row">
-                    <div class="dash-td bold">A-401</div>
-                    <div class="dash-td">3 Rec</div>
-                    <div class="dash-td">$3.8M</div>
-                    <div class="dash-td"><span class="status-pill sold">Vendido</span></div>
-                  </div>
-                  <div class="dash-row">
-                    <div class="dash-td bold">B-204</div>
-                    <div class="dash-td">2 Rec</div>
-                    <div class="dash-td">$2.1M</div>
-                    <div class="dash-td"><span class="status-pill avail">Disponible</span></div>
-                  </div>
-                  <div class="dash-row">
-                    <div class="dash-td bold">C-805</div>
-                    <div class="dash-td">PH</div>
-                    <div class="dash-td">$7.5M</div>
-                    <div class="dash-td"><span class="status-pill res">Reservado</span></div>
-                  </div>
-                  <div class="dash-row">
-                    <div class="dash-td bold">A-102</div>
-                    <div class="dash-td">1 Rec</div>
-                    <div class="dash-td">$1.5M</div>
-                    <div class="dash-td"><span class="status-pill sold">Vendido</span></div>
-                  </div>
-                </div>
-                <div class="dash-chart">
-                  <div class="chart-header">
-                    <div>
-                      <div class="chart-label">Ventas / mes</div>
-                      <div class="chart-total">$4.2M</div>
-                      <div class="chart-total-delta">↑ 18% vs anterior</div>
-                    </div>
-                  </div>
-                  <div class="chart-bars">
-                    <div class="chart-bar-wrap"><div class="chart-bar" style="height:40%"></div><div class="chart-bar-lbl">E</div></div>
-                    <div class="chart-bar-wrap"><div class="chart-bar" style="height:58%"></div><div class="chart-bar-lbl">F</div></div>
-                    <div class="chart-bar-wrap"><div class="chart-bar" style="height:35%"></div><div class="chart-bar-lbl">M</div></div>
-                    <div class="chart-bar-wrap"><div class="chart-bar" style="height:72%"></div><div class="chart-bar-lbl">A</div></div>
-                    <div class="chart-bar-wrap"><div class="chart-bar active" style="height:90%"></div><div class="chart-bar-lbl">M</div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img
+            src="Assets/Dashboard/dashboard-real-devio-notitulo.png"
+            alt="Devio Dashboard — Vista general del proyecto"
+            class="browser-screen"
+            loading="eager"
+            draggable="false"
+          />
         </div>
       </div>
     </div>
@@ -2011,87 +1951,276 @@
 
 <!-- ─── BENEFITS CLIENTS ─── -->
 <section id="benefits-client">
-  <div class="container">
-    <div class="client-grid">
-      <div>
-        <div class="tag">Para compradores</div>
-        <h2 class="section-title anim">Tu cliente vive<br/>la experiencia<br/>que merece.</h2>
-        <p class="section-sub anim anim-delay-1" style="margin-top:16px;">La app móvil de Devio transforma la relación con tus compradores. Transparencia total que genera confianza y referidos.</p>
-        <div class="client-benefits" style="margin-top:36px;">
-          <div class="client-benefit anim anim-delay-1">
-            <div class="cb-num">1</div>
-            <div class="cb-content">
-              <h4>Avance de obra en tiempo real</h4>
-              <p>Tu comprador ve el progreso de su unidad semana a semana, con fotos y porcentajes actualizados.</p>
+  <div class="app-story">
+    <div class="app-story-sticky">
+
+      <!-- LEFT: Text panels -->
+      <div class="app-story-left">
+        <div class="app-story-head">
+          <div class="tag">Para compradores</div>
+          <h2 class="section-title">Tu cliente vive<br/>la experiencia<br/>que merece.</h2>
+        </div>
+
+        <div class="app-story-panels">
+          <!-- Panel 1 -->
+          <div class="app-panel active" data-step="0">
+            <div class="app-panel-num">1</div>
+            <h3>Avance de obra<br/>en tiempo real</h3>
+            <p>Tu comprador ve el progreso de su unidad semana a semana, con fotos y porcentajes actualizados.</p>
+            <div class="app-panel-features">
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Actualización semanal con fotos
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Porcentaje de avance por etapa
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Notificación automática al comprador
+              </div>
             </div>
           </div>
-          <div class="client-benefit anim anim-delay-2">
-            <div class="cb-num">2</div>
-            <div class="cb-content">
-              <h4>Estado de cuenta siempre disponible</h4>
-              <p>Pagos realizados, próximas mensualidades y saldo pendiente en la palma de su mano, 24/7.</p>
+          <!-- Panel 2 -->
+          <div class="app-panel" data-step="1">
+            <div class="app-panel-num">2</div>
+            <h3>Estado de cuenta<br/>siempre disponible</h3>
+            <p>Pagos realizados, próximas mensualidades y saldo pendiente en la palma de su mano, 24/7.</p>
+            <div class="app-panel-features">
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Historial de pagos completo
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Recordatorio de vencimiento automático
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Comprobantes descargables
+              </div>
             </div>
           </div>
-          <div class="client-benefit anim anim-delay-3">
-            <div class="cb-num">3</div>
-            <div class="cb-content">
-              <h4>Documentos y contratos digitales</h4>
-              <p>Acceso inmediato a su contrato, escrituras y documentación en un repositorio seguro desde el app.</p>
+          <!-- Panel 3 -->
+          <div class="app-panel" data-step="2">
+            <div class="app-panel-num">3</div>
+            <h3>Documentos y contratos<br/>digitales</h3>
+            <p>Acceso inmediato a su contrato, escrituras y documentación en un repositorio seguro desde la app.</p>
+            <div class="app-panel-features">
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Contrato firmado digitalmente
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Repositorio privado y seguro
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Descarga en cualquier momento
+              </div>
             </div>
           </div>
-          <div class="client-benefit anim anim-delay-4">
-            <div class="cb-num">4</div>
-            <div class="cb-content">
-              <h4>Notificaciones inteligentes</h4>
-              <p>Recordatorios de pago, actualizaciones de obra y comunicados de la desarrolladora sin correos perdidos.</p>
+          <!-- Panel 4 -->
+          <div class="app-panel" data-step="3">
+            <div class="app-panel-num">4</div>
+            <h3>Siempre informado,<br/>sin fricción.</h3>
+            <p>Devio mantiene a tus compradores actualizados con recordatorios, avances y comunicados importantes en tiempo real.</p>
+            <div class="app-panel-features">
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Recordatorios automáticos de pago
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Alertas de avance de obra
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Confirmaciones instantáneas
+              </div>
+              <div class="app-panel-feature">
+                <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Comunicación centralizada
+              </div>
             </div>
           </div>
+        </div><!-- /app-story-panels -->
+
+        <div class="story-dots">
+          <div class="story-dot active" data-dot="0"></div>
+          <div class="story-dot" data-dot="1"></div>
+          <div class="story-dot" data-dot="2"></div>
+          <div class="story-dot" data-dot="3"></div>
         </div>
       </div>
-      <div class="phone-wrap anim anim-delay-1">
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-status">
-              <span class="ps-time">9:41</span>
-              <div class="ps-icons">
-                <div class="ps-icon"></div>
-              </div>
-            </div>
-            <div class="phone-header-text">Hola, María</div>
-            <div class="phone-sub-text">Torre Reforma · Unidad A-401</div>
-            <div class="phone-unit-card">
-              <div class="puc-title">Avance de tu unidad</div>
-              <div class="puc-progress-bar">
-                <div class="puc-progress-fill" style="width:78%"></div>
-              </div>
-              <div class="puc-stats">
-                <div>
-                  <div class="puc-stat-label">Completado</div>
-                  <div class="puc-stat-val">78%</div>
-                </div>
-                <div>
-                  <div class="puc-stat-label">Entrega estimada</div>
-                  <div class="puc-stat-val">Nov 2026</div>
-                </div>
-                <div>
-                  <div class="puc-stat-label">Etapa actual</div>
-                  <div class="puc-stat-val">Acabados</div>
-                </div>
-              </div>
-            </div>
-            <div class="phone-payment-card">
-              <div class="ppc-label">Próximo pago</div>
-              <div class="ppc-amount">$18,500</div>
-              <div class="ppc-due">Vence el 15 de junio, 2026</div>
-            </div>
-            <div class="phone-notif">
-              <div class="phone-notif-dot"></div>
-              <div class="phone-notif-text">Pago de mayo recibido correctamente. ¡Gracias!</div>
+
+      <!-- RIGHT: Sticky iPhone -->
+      <div class="app-story-right">
+        <div class="phone-ambient-glow"></div>
+        <div class="phone-story-shell">
+          <div class="phone-status-bar">
+            <div class="ph-sb-notch"></div>
+            <span class="ph-sb-time">9:41</span>
+            <div class="ph-sb-icons">
+              <!-- Signal bars -->
+              <svg width="13" height="10" viewBox="0 0 13 10" fill="rgba(255,255,255,0.9)">
+                <rect x="0" y="6" width="2.2" height="4" rx=".4"/>
+                <rect x="3.5" y="4" width="2.2" height="6" rx=".4"/>
+                <rect x="7" y="2" width="2.2" height="8" rx=".4"/>
+                <rect x="10.5" y="0" width="2.2" height="10" rx=".4"/>
+              </svg>
+              <!-- WiFi -->
+              <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
+                <circle cx="6.5" cy="9" r="1.1" fill="rgba(255,255,255,0.9)"/>
+                <path d="M3.5 6.2a4.2 4.2 0 0 1 6 0" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M1.2 3.8a7.5 7.5 0 0 1 10.6 0" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              <!-- Battery -->
+              <svg width="22" height="10" viewBox="0 0 22 10" fill="none">
+                <rect x=".5" y="1.5" width="18" height="7" rx="2" stroke="rgba(255,255,255,0.9)" stroke-width="1"/>
+                <rect x="2" y="3" width="12" height="4" rx="1" fill="rgba(255,255,255,0.9)"/>
+                <path d="M19.5 3.8v2.4" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
             </div>
           </div>
+          <div class="phone-story-slides">
+
+            <!-- Slide 0: Avance de obra -->
+            <div class="phone-story-slide active" data-slide="0">
+              <div class="ph-status">
+                <span class="ph-time">9:41</span>
+                <div class="ph-battery"><div class="ph-batt-icon"><div class="ph-batt-fill"></div></div><div class="ph-batt-tip"></div></div>
+              </div>
+              <div class="ph-screen-header">
+                <div class="ph-screen-title">Hola, María 👋</div>
+                <div class="ph-screen-sub">Torre Reforma · Unidad A-401</div>
+              </div>
+              <div class="ph-progress-card">
+                <div class="ph-card-title">Avance de tu unidad</div>
+                <div class="ph-prog-bar"><div class="ph-prog-fill" style="width:78%"></div></div>
+                <div class="ph-mini-stats">
+                  <div><div class="ph-mini-stat-l">Completado</div><div class="ph-mini-stat-v">78%</div></div>
+                  <div><div class="ph-mini-stat-l">Entrega</div><div class="ph-mini-stat-v">Nov 2026</div></div>
+                  <div><div class="ph-mini-stat-l">Etapa</div><div class="ph-mini-stat-v">Acabados</div></div>
+                </div>
+              </div>
+              <div class="ph-payment-card">
+                <div class="ph-pay-label">Próximo pago</div>
+                <div class="ph-pay-amount">$18,500</div>
+                <div class="ph-pay-due">Vence el 15 de junio, 2026</div>
+              </div>
+              <div class="ph-notif">
+                <div class="ph-notif-dot"></div>
+                <div class="ph-notif-text">Avance semanal disponible: Acabados al 78% ✓</div>
+              </div>
+            </div>
+
+            <!-- Slide 1: Estado de cuenta -->
+            <div class="phone-story-slide ph-slide-img" data-slide="1">
+              <img src="Assets/App Mobile/App_Mobile_edc.png" alt="Estado de cuenta" draggable="false" />
+            </div>
+
+            <!-- Slide 2: Documentos -->
+            <div class="phone-story-slide" data-slide="2">
+              <div class="ph-status">
+                <span class="ph-time">9:41</span>
+                <div class="ph-battery"><div class="ph-batt-icon"><div class="ph-batt-fill"></div></div><div class="ph-batt-tip"></div></div>
+              </div>
+              <div class="ph-screen-header">
+                <div class="ph-screen-title">Mis documentos</div>
+                <div class="ph-screen-sub">3 archivos · Torre Reforma</div>
+              </div>
+              <div class="ph-doc-item">
+                <div class="ph-doc-icon pdf"><svg fill="none" stroke="#ef4444" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><div class="ph-doc-name">Contrato de compraventa</div><div class="ph-doc-size">2.4 MB · PDF</div></div>
+                <div class="ph-doc-badge">Firmado</div>
+              </div>
+              <div class="ph-doc-item">
+                <div class="ph-doc-icon pdf"><svg fill="none" stroke="#ef4444" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><div class="ph-doc-name">Escrituras notariales</div><div class="ph-doc-size">5.1 MB · PDF</div></div>
+                <div class="ph-doc-badge">Firmado</div>
+              </div>
+              <div class="ph-doc-item">
+                <div class="ph-doc-icon zip"><svg fill="none" stroke="#C7B28B" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div>
+                <div><div class="ph-doc-name">Planos de unidad A-401</div><div class="ph-doc-size">8.7 MB · ZIP</div></div>
+                <div class="ph-doc-badge">Listo</div>
+              </div>
+              <div class="ph-notif">
+                <div class="ph-notif-dot"></div>
+                <div class="ph-notif-text">Documentos firmados y disponibles para descarga.</div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Notificaciones -->
+            <div class="phone-story-slide" data-slide="3" style="padding: 10px 13px;">
+              <div class="ph-screen-header" style="margin-bottom:9px;">
+                <div class="ph-screen-title">Notificaciones</div>
+                <div class="ph-screen-sub">Hoy · Torre Reforma</div>
+              </div>
+              <!-- Recordatorio de pago -->
+              <div class="ph-notif-card">
+                <div class="ph-nc-icon gold">
+                  <svg fill="none" stroke="var(--gold)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+                <div class="ph-nc-body">
+                  <div class="ph-nc-title">Recordatorio de pago</div>
+                  <div class="ph-nc-desc">Tu mensualidad de $18,500 vence en 3 días.</div>
+                </div>
+                <div class="ph-nc-time">Ahora</div>
+              </div>
+              <!-- Avance de obra -->
+              <div class="ph-notif-card">
+                <div class="ph-nc-icon blue">
+                  <svg fill="none" stroke="#60a5fa" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div class="ph-nc-body">
+                  <div class="ph-nc-title">Nuevo avance de obra</div>
+                  <div class="ph-nc-desc">Se publicaron fotos del avance semanal: 78% completado.</div>
+                </div>
+                <div class="ph-nc-time">2h</div>
+              </div>
+              <!-- Documento disponible -->
+              <div class="ph-notif-card">
+                <div class="ph-nc-icon green">
+                  <svg fill="none" stroke="#4ade80" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="ph-nc-body">
+                  <div class="ph-nc-title">Documento disponible</div>
+                  <div class="ph-nc-desc">Escrituras notariales listas para descarga.</div>
+                </div>
+                <div class="ph-nc-time">Ayer</div>
+              </div>
+              <!-- Pago confirmado -->
+              <div class="ph-notif-card">
+                <div class="ph-nc-icon green">
+                  <svg fill="none" stroke="#4ade80" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="ph-nc-body">
+                  <div class="ph-nc-title">Pago confirmado</div>
+                  <div class="ph-nc-desc">Mensualidad de mayo recibida correctamente.</div>
+                </div>
+                <div class="ph-nc-time">Lun</div>
+              </div>
+              <!-- Comunicado -->
+              <div class="ph-notif-card">
+                <div class="ph-nc-icon navy">
+                  <svg fill="none" stroke="rgba(199,178,139,0.8)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div class="ph-nc-body">
+                  <div class="ph-nc-title">Comunicado del desarrollador</div>
+                  <div class="ph-nc-desc">Actualización importante sobre la fecha de entrega.</div>
+                </div>
+                <div class="ph-nc-time">Mar</div>
+              </div>
+            </div>
+
+          </div>
         </div>
+        <div class="phone-reflection"></div>
       </div>
+
     </div>
   </div>
 </section>
@@ -2367,6 +2496,40 @@
       }
     });
   });
+
+  // ─── APP SCROLL STORY ───
+  (function() {
+    const story = document.querySelector('.app-story');
+    if (!story) return;
+
+    const panels = story.querySelectorAll('.app-panel');
+    const slides = story.querySelectorAll('.phone-story-slide');
+    const dots   = story.querySelectorAll('.story-dot');
+    let   current = 0;
+
+    function setStep(step) {
+      if (step === current) return;
+      current = step;
+      panels.forEach((p, i) => p.classList.toggle('active', i === step));
+      slides.forEach((s, i) => s.classList.toggle('active', i === step));
+      dots.forEach((d, i)   => d.classList.toggle('active', i === step));
+    }
+
+    function onScroll() {
+      // Only run scroll logic on desktop (sticky mode)
+      if (window.innerWidth <= 900) return;
+      const rect       = story.getBoundingClientRect();
+      const scrollable = story.offsetHeight - window.innerHeight;
+      if (scrollable <= 0) { setStep(0); return; }
+      const scrolled  = Math.max(0, -rect.top);
+      const progress  = Math.min(1, scrolled / scrollable);
+      const step      = Math.min(3, Math.floor(progress * 4));
+      setStep(step);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
 </script>
 
 <!-- ─── WHATSAPP BUTTON ─── -->
