@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Devio — Plataforma SaaS para Desarrolladores Inmobiliarios</title>
-  <link rel="icon" type="image/png" href="Assets/Logo/isotipo-clean.png" />
+  <link rel="icon" type="image/png" href="Assets/Logo/favicon-tab.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -145,7 +145,6 @@
       display: inline-flex;
       align-items: center;
       width: fit-content;
-      padding: 0;
       text-decoration: none;
     }
     .nav-logo img {
@@ -262,6 +261,7 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(100px);
+      will-change: transform;
     }
     .hero-circle-1 {
       width: 800px; height: 800px;
@@ -539,7 +539,6 @@
     section { padding: 112px 0; }
     .section-header { margin-bottom: 64px; }
     .section-header.center { text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .section-header.center .section-sub { text-align: center; }
     .section-title { font-size: clamp(30px, 4vw, 46px); font-weight: 800; letter-spacing: -0.03em; }
     .section-sub { font-size: 17px; color: var(--text-muted); max-width: 520px; line-height: 1.75; font-weight: 400; }
 
@@ -1114,13 +1113,6 @@
       filter: blur(8px);
       pointer-events: none; z-index: 0;
     }
-    /* Phone UI atoms */
-    .ph-status { display: none; }
-    .ph-time { font-size: 10px; font-weight: 700; color: var(--white); }
-    .ph-battery { display: flex; align-items: center; gap: 2px; }
-    .ph-batt-icon { width: 16px; height: 8px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 2px; padding: 1px; }
-    .ph-batt-fill { height: 100%; width: 70%; background: rgba(255,255,255,0.6); border-radius: 1px; }
-    .ph-batt-tip { width: 2px; height: 4px; background: rgba(255,255,255,0.4); border-radius: 1px; }
     .ph-screen-header { margin-bottom: 13px; }
     .ph-screen-title { font-size: 12px; font-weight: 700; color: var(--white); }
     .ph-screen-sub { font-size: 9px; color: rgba(255,255,255,0.38); margin-top: 2px; }
@@ -2069,10 +2061,6 @@
 
             <!-- Slide 0: Avance de obra -->
             <div class="phone-story-slide active" data-slide="0">
-              <div class="ph-status">
-                <span class="ph-time">9:41</span>
-                <div class="ph-battery"><div class="ph-batt-icon"><div class="ph-batt-fill"></div></div><div class="ph-batt-tip"></div></div>
-              </div>
               <div class="ph-screen-header">
                 <div class="ph-screen-title">Hola, María 👋</div>
                 <div class="ph-screen-sub">Torre Reforma · Unidad A-401</div>
@@ -2099,12 +2087,12 @@
 
             <!-- Slide 1: Estado de cuenta -->
             <div class="phone-story-slide ph-slide-img" data-slide="1">
-              <img src="Assets/App Mobile/App_Mobile_edc.png" alt="Estado de cuenta" draggable="false" />
+              <img src="Assets/App Mobile/App_Mobile_edc.png" alt="Estado de cuenta" loading="lazy" draggable="false" />
             </div>
 
             <!-- Slide 2: Documentos -->
             <div class="phone-story-slide ph-slide-img" data-slide="2">
-              <img src="Assets/App Mobile/App_Mobile_docsc.png" alt="Documentos" draggable="false" />
+              <img src="Assets/App Mobile/App_Mobile_docsc.png" alt="Documentos" loading="lazy" draggable="false" />
             </div>
 
             <!-- Slide 3: Notificaciones -->
@@ -2410,13 +2398,20 @@
   // Hero parallax on mousemove
   const hero = document.getElementById('hero');
   const circles = hero.querySelectorAll('.hero-circle');
+  let heroRect = hero.getBoundingClientRect();
+  let rafPending = false;
+  window.addEventListener('resize', () => { heroRect = hero.getBoundingClientRect(); }, { passive: true });
   hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    const cx = (e.clientX - rect.left) / rect.width - 0.5;
-    const cy = (e.clientY - rect.top) / rect.height - 0.5;
-    circles[0].style.transform = `translate(${cx * 24}px, ${cy * 24}px)`;
-    circles[1].style.transform = `translate(${-cx * 18}px, ${-cy * 18}px)`;
-  });
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+      const cx = (e.clientX - heroRect.left) / heroRect.width - 0.5;
+      const cy = (e.clientY - heroRect.top)  / heroRect.height - 0.5;
+      circles[0].style.transform = `translate(${cx * 24}px, ${cy * 24}px)`;
+      circles[1].style.transform = `translate(${-cx * 18}px, ${-cy * 18}px)`;
+      rafPending = false;
+    });
+  }, { passive: true });
 
   // Form submission
   const leadForm = document.getElementById('leadForm');
@@ -2485,8 +2480,8 @@
   })();
 
   // WhatsApp button — aparece 1.2s después de cargar
-  setTimeout(function() {
-    var btn = document.getElementById('waFloat');
+  setTimeout(() => {
+    const btn = document.getElementById('waFloat');
     if (btn) btn.classList.add('wa-visible');
   }, 1200);
 </script>
