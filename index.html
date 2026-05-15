@@ -71,7 +71,7 @@
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      transition: all .2s ease;
+      transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease;
       text-decoration: none;
     }
     .btn-gold:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(199,178,139,0.4); }
@@ -98,11 +98,13 @@
       opacity: 0;
       transform: translateX(-24px);
       transition: opacity .75s var(--ease), transform .75s var(--ease);
+      will-change: opacity, transform;
     }
     .anim-scale {
       opacity: 0;
       transform: scale(0.96);
       transition: opacity .6s var(--ease), transform .6s var(--ease);
+      will-change: opacity, transform;
     }
     .anim.visible, .anim-left.visible, .anim-scale.visible {
       opacity: 1; transform: none;
@@ -125,7 +127,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      transition: all .4s var(--ease);
+      transition: background-color .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
       padding: 0;
     }
     nav.scrolled {
@@ -161,7 +163,7 @@
       font-weight: 500;
       padding: 9px 20px;
       border-radius: 8px;
-      transition: all .2s var(--ease);
+      transition: border-color .2s var(--ease), color .2s var(--ease), background-color .2s var(--ease);
     }
     .btn-login:hover {
       border-color: rgba(255,255,255,0.35);
@@ -210,7 +212,7 @@
       height: 1.5px;
       background: rgba(255,255,255,0.8);
       border-radius: 2px;
-      transition: all .3s;
+      transition: background-color .3s, transform .3s;
     }
     .mobile-menu {
       display: none;
@@ -720,7 +722,7 @@
       padding: 36px 30px;
       border: 1px solid rgba(31,54,82,0.07);
       background: var(--white);
-      transition: all .35s var(--ease);
+      transition: border-color .35s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease);
       position: relative;
       overflow: hidden;
       cursor: default;
@@ -748,7 +750,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      transition: all .3s var(--ease);
+      transition: background-color .3s var(--ease), transform .3s var(--ease);
     }
     .feature-card:hover .feature-icon {
       background: rgba(199,178,139,0.12);
@@ -822,7 +824,7 @@
       position: relative;
       z-index: 2;
       letter-spacing: -0.02em;
-      transition: all .3s var(--ease);
+      transition: background-color .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
     }
     .step:hover .step-num {
       background: var(--navy);
@@ -870,7 +872,7 @@
       padding: 20px;
       border-radius: 12px;
       border: 1px solid transparent;
-      transition: all .25s;
+      transition: background-color .25s, border-color .25s;
       cursor: default;
     }
     .benefit-item:hover { background: var(--gray); border-color: rgba(31,54,82,0.1); }
@@ -1018,7 +1020,7 @@
     .story-dot {
       width: 6px; height: 6px; border-radius: 100px;
       background: rgba(31,54,82,0.2);
-      transition: all .45s var(--ease);
+      transition: background-color .45s var(--ease), width .45s var(--ease), box-shadow .45s var(--ease);
       cursor: pointer;
     }
     .story-dot.active { background: var(--gold); width: 22px; box-shadow: 0 0 8px rgba(199,178,139,0.35); }
@@ -1079,7 +1081,11 @@
       position: relative;
       z-index: 5;
       flex-shrink: 0;
+      transition: background .4s ease;
     }
+    .phone-story-shell.immersive-slide .phone-status-bar { background: transparent; }
+    .phone-story-shell.immersive-slide .ph-sb-time,
+    .phone-story-shell.immersive-slide .ph-sb-icons { opacity: 0; transition: opacity .4s ease; }
     .ph-sb-notch {
       position: absolute;
       top: 0; left: 50%; transform: translateX(-50%);
@@ -1092,10 +1098,12 @@
       color: rgba(255,255,255,0.92);
       letter-spacing: .01em;
       flex: 1; position: relative; z-index: 1;
+      transition: opacity .4s ease;
     }
     .ph-sb-icons {
       display: flex; align-items: center; gap: 5px;
       position: relative; z-index: 1;
+      transition: opacity .4s ease;
     }
     .phone-story-slides { position: absolute; inset: 0; top: 46px; }
     .phone-story-slide {
@@ -1182,8 +1190,6 @@
     .ph-nc-time { font-size: 6.5px; color: rgba(255,255,255,0.22); white-space: nowrap; }
     .ph-slide-img { padding: 0; }
     .ph-slide-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-    .ph-slide-img-full { padding: 0; display: flex; align-items: center; justify-content: center; background: #1a2f48; }
-    .ph-slide-img-full img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
     /* ─── CTA ─── */
     #cta { background: linear-gradient(145deg, #1C314A 0%, #1F3652 45%, #192B42 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(199,178,139,0.06); }
@@ -1284,7 +1290,7 @@
       border: none;
       cursor: pointer;
       font-family: inherit;
-      transition: all .2s;
+      transition: background-color .2s, transform .2s, box-shadow .2s;
     }
     .form-submit:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(199,178,139,0.3); }
     .form-note { font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 12px; }
@@ -1391,7 +1397,7 @@
       background: rgba(255,255,255,0.04);
       color: rgba(255,255,255,0.45);
       text-decoration: none;
-      transition: all .25s var(--ease);
+      transition: border-color .25s var(--ease), background-color .25s var(--ease), color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
       flex-shrink: 0;
     }
     .fsocial:hover {
@@ -1439,6 +1445,8 @@
       margin-top: 12px;
     }
     .footer-email:hover { color: var(--gold); }
+    .mobile-menu-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+    .hero-avatar-extra { background: linear-gradient(135deg, #7a9bb8, #456278); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -1474,6 +1482,8 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-headline { font-size: clamp(30px, 8vw, 42px); }
       .footer-nav { flex-direction: row; gap: 28px; }
+      .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+      .wa-float svg { width: 24px; height: 24px; }
     }
     /* ─── WHATSAPP FLOAT ─── */
     .wa-float {
@@ -1506,10 +1516,6 @@
     }
     .wa-float:active { transform: scale(0.97); }
     .wa-float svg { width: 28px; height: 28px; fill: #fff; flex-shrink: 0; }
-    @media (max-width: 580px) {
-      .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-      .wa-float svg { width: 24px; height: 24px; }
-    }
   </style>
 </head>
 <body>
@@ -1539,13 +1545,13 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#features" onclick="closeMobile()">Funciones</a>
-  <a href="#how" onclick="closeMobile()">Cómo funciona</a>
-  <a href="#benefits-dev" onclick="closeMobile()">Beneficios</a>
-  <a href="#benefits-client" onclick="closeMobile()">App Clientes</a>
-  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
-    <a href="#" class="btn btn-login" onclick="closeMobile()">Iniciar sesión</a>
-    <a href="#cta" class="btn btn-gold" onclick="closeMobile()">Solicitar demo</a>
+  <a href="#features">Funciones</a>
+  <a href="#how">Cómo funciona</a>
+  <a href="#benefits-dev">Beneficios</a>
+  <a href="#benefits-client">App Clientes</a>
+  <div class="mobile-menu-actions">
+    <a href="#" class="btn btn-login">Iniciar sesión</a>
+    <a href="#cta" class="btn btn-gold">Solicitar demo</a>
   </div>
 </div>
 
@@ -1583,7 +1589,7 @@
             <div class="hero-avatar">JM</div>
             <div class="hero-avatar">AL</div>
             <div class="hero-avatar">RG</div>
-            <div class="hero-avatar" style="background:linear-gradient(135deg,#7a9bb8,#456278);">+</div>
+            <div class="hero-avatar hero-avatar-extra">+</div>
           </div>
           <div class="hero-proof-divider"></div>
           <p class="hero-proof-text">
@@ -2096,66 +2102,8 @@
             </div>
 
             <!-- Slide 3: Notificaciones -->
-            <div class="phone-story-slide" data-slide="3" style="padding: 10px 13px;">
-              <div class="ph-screen-header" style="margin-bottom:9px;">
-                <div class="ph-screen-title">Notificaciones</div>
-                <div class="ph-screen-sub">Hoy · Torre Reforma</div>
-              </div>
-              <!-- Recordatorio de pago -->
-              <div class="ph-notif-card">
-                <div class="ph-nc-icon gold">
-                  <svg fill="none" stroke="var(--gold)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                </div>
-                <div class="ph-nc-body">
-                  <div class="ph-nc-title">Recordatorio de pago</div>
-                  <div class="ph-nc-desc">Tu mensualidad de $18,500 vence en 3 días.</div>
-                </div>
-                <div class="ph-nc-time">Ahora</div>
-              </div>
-              <!-- Avance de obra -->
-              <div class="ph-notif-card">
-                <div class="ph-nc-icon blue">
-                  <svg fill="none" stroke="#60a5fa" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                </div>
-                <div class="ph-nc-body">
-                  <div class="ph-nc-title">Nuevo avance de obra</div>
-                  <div class="ph-nc-desc">Se publicaron fotos del avance semanal: 78% completado.</div>
-                </div>
-                <div class="ph-nc-time">2h</div>
-              </div>
-              <!-- Documento disponible -->
-              <div class="ph-notif-card">
-                <div class="ph-nc-icon green">
-                  <svg fill="none" stroke="#4ade80" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                </div>
-                <div class="ph-nc-body">
-                  <div class="ph-nc-title">Documento disponible</div>
-                  <div class="ph-nc-desc">Escrituras notariales listas para descarga.</div>
-                </div>
-                <div class="ph-nc-time">Ayer</div>
-              </div>
-              <!-- Pago confirmado -->
-              <div class="ph-notif-card">
-                <div class="ph-nc-icon green">
-                  <svg fill="none" stroke="#4ade80" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-                <div class="ph-nc-body">
-                  <div class="ph-nc-title">Pago confirmado</div>
-                  <div class="ph-nc-desc">Mensualidad de mayo recibida correctamente.</div>
-                </div>
-                <div class="ph-nc-time">Lun</div>
-              </div>
-              <!-- Comunicado -->
-              <div class="ph-notif-card">
-                <div class="ph-nc-icon navy">
-                  <svg fill="none" stroke="rgba(199,178,139,0.8)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                </div>
-                <div class="ph-nc-body">
-                  <div class="ph-nc-title">Comunicado del desarrollador</div>
-                  <div class="ph-nc-desc">Actualización importante sobre la fecha de entrega.</div>
-                </div>
-                <div class="ph-nc-time">Mar</div>
-              </div>
+            <div class="phone-story-slide ph-slide-img" data-slide="3" style="top:-46px; bottom:0; height:calc(100% + 46px);">
+              <img src="Assets/App Mobile/App_Mobile_PantallaInicio.png" alt="Notificaciones" loading="lazy" draggable="false" />
             </div>
 
           </div>
@@ -2338,10 +2286,10 @@
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') mobileMenu.classList.remove('open');
   });
-  function closeMobile() { mobileMenu.classList.remove('open'); }
 
   // Intersection Observer for scroll animations
   const animEls = document.querySelectorAll('.anim, .anim-left, .anim-scale');
@@ -2461,6 +2409,7 @@
       panels.forEach((p, i) => p.classList.toggle('active', i === step));
       slides.forEach((s, i) => s.classList.toggle('active', i === step));
       dots.forEach((d, i)   => d.classList.toggle('active', i === step));
+      story.querySelector('.phone-story-shell').classList.toggle('immersive-slide', step === 3);
     }
 
     function onScroll() {
