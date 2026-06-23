@@ -87,7 +87,7 @@ leadForm.addEventListener('submit', (e) => {
     const inputs = leadForm.querySelectorAll('input[required]');
     inputs.forEach(input => {
       if (!input.value.trim()) {
-        input.style.borderColor = '#f87171';
+        input.style.borderColor = '#F03D30';
         input.addEventListener('input', () => { input.style.borderColor = ''; }, { once: true });
       }
     });
