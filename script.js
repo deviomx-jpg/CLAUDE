@@ -1,10 +1,8 @@
-// NAV scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 30);
 }, { passive: true });
 
-// Hamburger menu
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
@@ -12,7 +10,6 @@ mobileMenu.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') mobileMenu.classList.remove('open');
 });
 
-// Intersection Observer for scroll animations
 const animEls = document.querySelectorAll('.anim, .anim-left, .anim-scale');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -24,7 +21,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
 animEls.forEach(el => observer.observe(el));
 
-// Metric bar fill animation
 const metricFills = document.querySelectorAll('.metric-fill');
 const metricsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -38,7 +34,6 @@ const metricsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 metricFills.forEach(el => metricsObserver.observe(el));
 
-// Counter animation
 function animateCounter(el) {
   const target = parseInt(el.getAttribute('data-target'));
   const duration = 1800;
@@ -64,7 +59,6 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 counters.forEach(el => counterObserver.observe(el));
 
-// Hero parallax on mousemove
 const hero = document.getElementById('hero');
 const circles = hero.querySelectorAll('.hero-circle');
 let heroRect = hero.getBoundingClientRect();
@@ -82,7 +76,6 @@ hero.addEventListener('mousemove', (e) => {
   });
 }, { passive: true });
 
-// Form submission
 const leadForm = document.getElementById('leadForm');
 const formSuccess = document.getElementById('formSuccess');
 leadForm.addEventListener('submit', (e) => {
@@ -104,7 +97,6 @@ leadForm.addEventListener('submit', (e) => {
   formSuccess.style.display = 'block';
 });
 
-// Make elements in viewport visible on load
 window.addEventListener('load', () => {
   animEls.forEach(el => {
     const rect = el.getBoundingClientRect();
@@ -114,7 +106,6 @@ window.addEventListener('load', () => {
   });
 });
 
-// ─── APP SCROLL STORY ───
 (function() {
   const story = document.querySelector('.app-story');
   if (!story) return;
@@ -134,7 +125,6 @@ window.addEventListener('load', () => {
   }
 
   function onScroll() {
-    // Only run scroll logic on desktop (sticky mode)
     if (window.innerWidth <= 900) return;
     const rect       = story.getBoundingClientRect();
     const scrollable = story.offsetHeight - window.innerHeight;
@@ -149,7 +139,6 @@ window.addEventListener('load', () => {
   onScroll();
 })();
 
-// WhatsApp button — aparece 1.2s después de cargar
 setTimeout(() => {
   const btn = document.getElementById('waFloat');
   if (btn) btn.classList.add('wa-visible');

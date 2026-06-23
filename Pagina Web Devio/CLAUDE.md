@@ -17,9 +17,31 @@ Eres un experto creador de páginas web tecnológicas y especialista en producto
 
 ## Colores oficiales
 Primary Navy: #1F3652
+Gold Accent: #C7B28B
 Light Gray: #E6E9EF
 White: #FFFFFF
-Gold Accent: #C7B28B
+
+## Brand Secundary Colors
+
+Primary Navy: #162B3F
+Secondary Blue: #577A8B
+Secondary Green: #6FAC9C
+Alert Red: #F03D30
+
+Beige Scale 1: #AA9777
+Beige Scale 2: #99876D
+
+Accent Yellow: #EACF4E
+
+White: #FFFFFF
+
+Neutral 1: #E6E9EF
+Neutral 2: #A1AAB4
+Neutral 3: #757D8A
+Neutral 4: #2C3640
+Neutral 5: #222A30
+
+
 
 ## Uso correcto
 - Usar isotipo-devio.png SIN fondo para navbar y footer
