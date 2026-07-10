@@ -238,7 +238,7 @@ nav.scrolled {
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   padding: 156px 0 96px;
 }
 .hero-bg {
@@ -471,9 +471,10 @@ nav.scrolled {
   margin: 0 10px;
 }
 .browser-screen {
-  width: 100%;
+  width: 175%;
   height: auto;
   display: block;
+  margin-left: -27%;
   object-fit: cover;
   object-position: top;
   vertical-align: bottom;
