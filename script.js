@@ -10,7 +10,7 @@ mobileMenu.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') mobileMenu.classList.remove('open');
 });
 
-const animEls = document.querySelectorAll('.anim, .anim-left, .anim-scale');
+const animEls = document.querySelectorAll('.anim');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
