@@ -305,7 +305,7 @@ nav.scrolled {
 }
 .hero-headline em {
   font-style: normal;
-  background: linear-gradient(135deg, var(--gold3) 0%, var(--gold) 40%, var(--gold2) 100%);
+  background: linear-gradient(135deg, #C4B090 0%, #AA9777 40%, #8F7D62 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
