@@ -382,12 +382,12 @@ nav.scrolled {
   pointer-events: none;
 }
 .dashboard-wrap::before {
-  content: '';
+  content: none;
   position: absolute;
-  bottom: -40px; left: 5%; right: 5%;
-  height: 40px;
-  background: radial-gradient(ellipse at center, rgba(var(--gold-rgb),0.15) 0%, transparent 70%);
-  filter: blur(16px);
+  bottom: -12px; left: 5%; right: 5%;
+  height: 28px;
+  background: radial-gradient(ellipse at center, rgba(var(--gold-rgb),0.35) 0%, transparent 70%);
+  filter: blur(10px);
   pointer-events: none;
 }
 .browser-screen {
