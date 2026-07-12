@@ -627,7 +627,6 @@ section { padding: 112px 0; }
   pointer-events: none;
   z-index: 0;
 }
-#features .container { position: relative; z-index: 1; }
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -678,7 +677,7 @@ section { padding: 112px 0; }
 .feature-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.75; }
 
 #how {
-  background-color: var(--gray2);
+  background-color: var(--white);
   background-image:
     radial-gradient(ellipse at 50% -15%, rgba(var(--gold-rgb),0.11) 0%, transparent 55%),
     radial-gradient(ellipse at 50% 115%, rgba(var(--navy-rgb),0.05) 0%, transparent 45%),
@@ -751,7 +750,7 @@ section { padding: 112px 0; }
 .step p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
 
 #benefits-dev {
-  background-color: var(--white);
+  background-color: var(--gray);
   background-image:
     radial-gradient(ellipse at 0% 50%, rgba(var(--navy-rgb),0.045) 0%, transparent 45%),
     radial-gradient(ellipse at 100% 50%, rgba(var(--gold-rgb),0.08) 0%, transparent 50%),
