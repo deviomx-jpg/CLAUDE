@@ -393,10 +393,10 @@ nav.scrolled {
   pointer-events: none;
 }
 .browser-screen {
-  width: 175%;
+  width: 192%;
   height: auto;
   display: block;
-  margin-left: -27%;
+  margin-left: -36%;
   object-fit: cover;
   object-position: top;
   vertical-align: bottom;
