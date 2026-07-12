@@ -100,7 +100,6 @@ nav {
   top: 0; left: 0; right: 0;
   z-index: 100;
   transition: background-color .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
-  padding: 0;
 }
 nav.scrolled {
   background: rgba(var(--navy-rgb), 0.90);
