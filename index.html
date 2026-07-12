@@ -610,19 +610,23 @@
           <form id="leadForm" novalidate>
             <div class="form-group">
               <label>Nombre completo</label>
-              <input type="text" id="fname" placeholder="Ej. Carlos Martínez" required />
+              <input type="text" id="fname" name="name" placeholder="Ej. Carlos Martínez" required />
             </div>
             <div class="form-group">
               <label>Correo electrónico</label>
-              <input type="email" id="femail" placeholder="carlos@desarrolladora.mx" required />
+              <input type="email" id="femail" name="email" placeholder="carlos@desarrolladora.mx" required />
             </div>
             <div class="form-group">
               <label>Empresa / Desarrolladora</label>
-              <input type="text" id="fcompany" placeholder="Nombre de tu empresa" required />
+              <input type="text" id="fcompany" name="company" placeholder="Nombre de tu empresa" required />
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" id="fphone" name="phone" placeholder="Ej. 33 1234 5678" />
             </div>
             <div class="form-group">
               <label>Número de proyectos activos</label>
-              <select id="fsize">
+              <select id="fsize" name="projects">
                 <option value="" disabled selected>Selecciona una opción</option>
                 <option value="1">1 proyecto</option>
                 <option value="2-5">2 a 5 proyectos</option>

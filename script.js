@@ -78,7 +78,7 @@ hero.addEventListener('mousemove', (e) => {
 
 const leadForm = document.getElementById('leadForm');
 const formSuccess = document.getElementById('formSuccess');
-leadForm.addEventListener('submit', (e) => {
+leadForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const fname = document.getElementById('fname').value.trim();
   const femail = document.getElementById('femail').value.trim();
@@ -93,8 +93,19 @@ leadForm.addEventListener('submit', (e) => {
     });
     return;
   }
-  leadForm.style.display = 'none';
-  formSuccess.style.display = 'block';
+  const btn = leadForm.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+  const data = new FormData(leadForm);
+  const res = await fetch('https://formspree.io/f/mqerzdna', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+  if (res.ok) {
+    leadForm.style.display = 'none';
+    formSuccess.style.display = 'block';
+  } else {
+    btn.disabled = false;
+    btn.textContent = 'Solicitar demo gratuita →';
+    alert('Hubo un error al enviar. Intenta de nuevo o contáctanos por WhatsApp.');
+  }
 });
 
 window.addEventListener('load', () => {
