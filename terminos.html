@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Términos y Condiciones — Devio</title>
+  <link rel="icon" type="image/png" href="Assets/Logo/favicon-tab.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .privacy-header {
+      background: linear-gradient(145deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy2) 100%);
+      padding: 140px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .privacy-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .035;
+      background-image: var(--noise-bg);
+      background-size: 256px 256px;
+    }
+    .privacy-header-inner { position: relative; z-index: 1; }
+    .privacy-header .tag { margin-bottom: 20px; }
+    .privacy-header h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .privacy-header p { font-size: 15px; color: rgba(230,233,239,0.6); margin-top: 8px; }
+    .privacy-body { background: var(--white); padding: 80px 0 120px; }
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .privacy-index { position: sticky; top: 100px; }
+    .privacy-index h6 {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .privacy-index ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .privacy-index ul li a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .2s;
+      line-height: 1.5;
+      display: block;
+    }
+    .privacy-index ul li a:hover { color: var(--gold2); }
+    .privacy-content h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .privacy-content h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-top: 48px;
+      margin-bottom: 12px;
+      padding-top: 48px;
+      border-top: 1px solid var(--gray);
+    }
+    .privacy-content h2:first-of-type { margin-top: 32px; padding-top: 32px; }
+    .privacy-content h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 22px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .privacy-content p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .privacy-content ul {
+      margin: 10px 0 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .privacy-content ul li { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+    .privacy-content b, .privacy-content strong { color: var(--navy); font-weight: 600; }
+    .privacy-content a { color: var(--gold2); text-decoration: none; }
+    .privacy-content a:hover { text-decoration: underline; }
+    .privacy-content hr { border: none; border-top: 1px solid var(--gray); margin: 40px 0; }
+    .privacy-highlight {
+      background: rgba(199,178,139,0.08);
+      border: 1px solid rgba(199,178,139,0.25);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .privacy-highlight p { margin-bottom: 0; }
+    @media (max-width: 900px) {
+      .privacy-layout { grid-template-columns: 1fr; gap: 40px; }
+      .privacy-index { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar" class="scrolled">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Funciones</a></li>
+        <li><a href="index.html#benefits-client">App Clientes</a></li>
+        <li><a href="index.html#benefits-dev">Beneficios</a></li>
+        <li><a href="index.html#how">Cómo funciona</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html" class="btn btn-login">Inicio</a>
+        <a href="index.html#cta" class="btn btn-gold">Solicitar demo</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#features">Funciones</a>
+  <a href="index.html#benefits-client">App Clientes</a>
+  <a href="index.html#benefits-dev">Beneficios</a>
+  <a href="index.html#how">Cómo funciona</a>
+  <div class="mobile-menu-actions">
+    <a href="index.html" class="btn btn-login">Inicio</a>
+    <a href="index.html#cta" class="btn btn-gold">Solicitar demo</a>
+  </div>
+</div>
+
+<div class="privacy-header">
+  <div class="container privacy-header-inner">
+    <span class="tag">Legal</span>
+    <h1>Términos y Condiciones de Uso</h1>
+    <p>Plataforma "DEVIO" — Última actualización: julio 2026</p>
+  </div>
+</div>
+
+<div class="privacy-body">
+  <div class="container">
+    <div class="privacy-layout">
+
+      <nav class="privacy-index">
+        <h6>Contenido</h6>
+        <ul>
+          <li><a href="#declaraciones">Declaraciones</a></li>
+          <li><a href="#definiciones">Definiciones</a></li>
+          <li><a href="#c1">1. Objeto del servicio</a></li>
+          <li><a href="#c2">2. Tipos de usuarios</a></li>
+          <li><a href="#c3">3. Registro y cuentas</a></li>
+          <li><a href="#c4">4. Alcances del servicio</a></li>
+          <li><a href="#c5">5. Planes y suscripciones</a></li>
+          <li><a href="#c6">6. Pagos y cobros</a></li>
+          <li><a href="#c7">7. Uso permitido y prohibido</a></li>
+          <li><a href="#c8">8. Contenido e información</a></li>
+          <li><a href="#c9">9. Comunicaciones</a></li>
+          <li><a href="#c10">10. Disponibilidad del servicio</a></li>
+          <li><a href="#c11">11. Suspensión y terminación</a></li>
+          <li><a href="#c12">12. Propiedad intelectual</a></li>
+          <li><a href="#c13">13. Confidencialidad</a></li>
+          <li><a href="#c14">14. Exenciones de responsabilidad</a></li>
+          <li><a href="#c15">15. Indemnización</a></li>
+          <li><a href="#c16">16. Modificaciones</a></li>
+          <li><a href="#c17">17. Legislación y jurisdicción</a></li>
+          <li><a href="#generales">Cláusulas generales</a></li>
+        </ul>
+      </nav>
+
+      <div class="privacy-content">
+
+        <h1>TÉRMINOS Y CONDICIONES DE USO Y AVISO DE PRIVACIDAD INTEGRAL DE LA PLATAFORMA TECNOLÓGICA "DEVIO", QUE EMITE, POR UNA PARTE, <b>JINH CAPITAL, S.A.P.I. DE C.V.</b>, A QUIEN EN LO SUCESIVO SE LE DENOMINARÁ <b>"DEVIO"</b>; Y, POR OTRA PARTE, LAS PERSONAS FÍSICAS O MORALES QUE ACCEDAN, SE REGISTREN O UTILICEN LA PLATAFORMA, YA SEA EN SU CARÁCTER DE DESARROLLADOR INMOBILIARIO O USUARIO FINAL, A QUIENES EN LO SUCESIVO SE LES DENOMINARÁ, SEGÚN CORRESPONDA, EL <b>"DESARROLLADOR"</b> Y/O EL <b>"USUARIO"</b>.</h1>
+
+        <h2 id="declaraciones">DECLARACIONES</h2>
+
+        <h3>I. Declaraciones de "DEVIO"</h3>
+        <p>I.1. Declara <b>Jinh Capital, S.A.P.I. de C.V.</b> que:</p>
+        <p>a) Es una sociedad mercantil debidamente constituida y existente conforme a las leyes de los Estados Unidos Mexicanos, bajo el régimen de <b>Sociedad Anónima Promotora de Inversión de Capital Variable</b>, con plena capacidad legal para emitir el presente documento y para prestar los servicios que en el mismo se regulan.</p>
+        <p>b) Se encuentra inscrita en el Registro Federal de Contribuyentes bajo la clave <b>JCA240416NE3</b>, con denominación y nombre comercial <b>Jinh Capital</b>, con estatus <b>activo</b> en el padrón fiscal, habiendo iniciado operaciones el <b>16 de abril de 2024</b>.</p>
+        <p>c) Tiene su domicilio para todos los efectos del presente documento en <b>Avenida Américas número 1930, Piso 10, Unidad Privativa 2, Colonia Country Club, Código Postal 44610, en la ciudad de Guadalajara, Estado de Jalisco</b>.</p>
+        <p>d) Opera y administra una plataforma tecnológica identificada comercialmente como <b>DEVIO</b>, accesible a través de aplicaciones web y móviles, cuyo objeto es proporcionar a desarrolladores inmobiliarios una herramienta digital para la gestión de información, procesos administrativos, comerciales y de seguimiento de proyectos inmobiliarios, así como permitir a los usuarios finales consultar información relacionada con los desarrollos inmobiliarios en los que participan.</p>
+        <p>e) Para efectos del presente documento, actúa única y exclusivamente como <b>proveedor de una herramienta tecnológica</b>, sin intervenir, participar ni asumir responsabilidad alguna respecto de las relaciones jurídicas, comerciales, contractuales o patrimoniales que se generen entre el Desarrollador y sus clientes o terceros.</p>
+        <p>f) Cuenta con los medios técnicos, administrativos y operativos necesarios para poner la Plataforma a disposición de los usuarios conforme a los términos establecidos en el presente documento.</p>
+        <p>g) Señala como medios de contacto los siguientes:</p>
+        <ul>
+          <li>Correo electrónico de contacto general y legal: <b><a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></b></li>
+          <li>Correo electrónico para la atención de derechos en materia de protección de datos personales: <b><a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></b></li>
+        </ul>
+        <p>h) Manifiesta que el presente documento tiene naturaleza contractual, que su aceptación se realiza por medios electrónicos y que dicha aceptación produce plenos efectos jurídicos obligatorios conforme a la legislación mexicana aplicable.</p>
+
+        <h3>II. Declaraciones del "Desarrollador"</h3>
+        <p>II.1. Declara el <b>Desarrollador</b>, ya sea persona física o moral, que:</p>
+        <p>a) Cuenta con capacidad legal suficiente para obligarse en los términos del presente documento y, en su caso, que su representante cuenta con las facultades necesarias para aceptar electrónicamente el mismo, las cuales no le han sido revocadas ni limitadas a la fecha.</p>
+        <p>b) Reconoce y acepta que el acceso, registro y uso de la Plataforma se realiza de manera voluntaria, bajo su exclusiva responsabilidad y conforme a sus necesidades comerciales y operativas.</p>
+        <p>c) Manifiesta que la información, datos, documentos, contenidos y materiales que cargue, administre o comparta a través de la Plataforma son de su propiedad, se encuentran bajo su control o cuenta con las autorizaciones legales necesarias para su uso, tratamiento y comunicación a terceros, incluyendo a los usuarios finales que habilite dentro de la Plataforma.</p>
+        <p>d) Reconoce expresamente que <b>DEVIO no es parte</b>, ni interviene, ni asume responsabilidad alguna respecto de las relaciones jurídicas, contractuales, comerciales, patrimoniales o de cualquier otra naturaleza que el Desarrollador mantenga con sus clientes, inversionistas, compradores, proveedores o terceros.</p>
+        <p>e) Acepta que es el <b>único responsable</b> frente a sus clientes y frente a cualquier autoridad por el cumplimiento de las obligaciones legales, fiscales, contractuales y regulatorias derivadas de su actividad inmobiliaria, así como por el tratamiento de los datos personales de sus clientes que incorpore a la Plataforma.</p>
+        <p>f) Reconoce que DEVIO actúa exclusivamente como <b>proveedor de una herramienta tecnológica</b>, por lo que no garantiza resultados comerciales, financieros, de cobranza, ventas, recuperación de adeudos, ni el cumplimiento de obligaciones por parte de los clientes del Desarrollador.</p>
+        <p>g) Se obliga a utilizar la Plataforma conforme a la legislación aplicable, a los usos lícitos del comercio y a lo establecido en el presente documento, absteniéndose de emplearla para fines ilícitos, fraudulentos, engañosos o contrarios a derechos de terceros.</p>
+        <p>h) Acepta que la contratación, renovación, modificación, suspensión o cancelación de la suscripción a la Plataforma se rige por los términos, condiciones, planes y precios vigentes al momento de su aceptación, los cuales reconoce haber conocido previo a su contratación.</p>
+        <p>i) Reconoce que la aceptación del presente documento se realiza por medios electrónicos y que dicha aceptación produce <b>plenos efectos jurídicos obligatorios</b>, equivalentes a los de un contrato celebrado por escrito y firmado de manera autógrafa.</p>
+
+        <h3>III. Declaraciones del "Usuario" (Cliente final)</h3>
+        <p>III.1. Declara el <b>Usuario</b>, persona física que accede a la Plataforma y/o a la aplicación móvil asociada a DEVIO, que:</p>
+        <p>a) Reconoce que su acceso y uso de la Plataforma se realiza por invitación, habilitación o autorización del <b>Desarrollador</b>, y que su interacción dentro de la misma se limita exclusivamente a las funcionalidades, información y contenidos que dicho Desarrollador determine y ponga a su disposición.</p>
+        <p>b) Manifiesta que ha leído, comprendido y aceptado el presente documento de manera directa, libre e informada, previo a su registro, acceso o utilización de la Plataforma.</p>
+        <p>c) Reconoce expresamente que <b>DEVIO no es parte</b> de la relación jurídica, contractual, comercial, patrimonial o de cualquier otra naturaleza que mantenga con el Desarrollador.</p>
+        <p>d) Acepta que DEVIO actúa única y exclusivamente como <b>proveedor de una herramienta tecnológica</b>, por lo que no garantiza ni asume responsabilidad alguna respecto de la información, documentos, avances de obra, estados de cuenta, pagos, contratos, promesas de compraventa, resultados financieros o cualquier otro contenido generado, cargado o administrado por el Desarrollador.</p>
+        <p>e) Reconoce que cualquier aclaración, reclamación, corrección, actualización o controversia relacionada con la información dentro de la Plataforma deberá gestionarse directamente con el Desarrollador, liberando a DEVIO de cualquier responsabilidad al respecto.</p>
+        <p>f) Se obliga a utilizar la Plataforma de manera lícita, absteniéndose de realizar actos que afecten la seguridad, integridad o funcionamiento de la Plataforma, así como los derechos de DEVIO, del Desarrollador o de terceros.</p>
+        <p>g) Acepta que DEVIO podrá suspender o limitar su acceso a la Plataforma en caso de incumplimiento al presente documento, de uso indebido de la Plataforma o por instrucción del Desarrollador, sin que ello genere responsabilidad alguna para DEVIO.</p>
+
+        <h3>IV. Declaraciones Conjuntas</h3>
+        <p>IV.1. Declaran <b>DEVIO</b>, el <b>Desarrollador</b> y el <b>Usuario</b>, según corresponda a cada uno de ellos, que:</p>
+        <p>a) Reconocen que el presente documento constituye un <b>instrumento jurídico válido, vinculante y obligatorio</b>, que regula de manera integral el acceso, uso y aprovechamiento de la Plataforma, así como el tratamiento de los datos personales que se recaben a través de la misma.</p>
+        <p>b) Manifiestan que la aceptación del presente documento se realiza por <b>medios electrónicos</b> y que dicha aceptación produce <b>plenos efectos jurídicos</b>, equivalentes a los de un contrato celebrado por escrito y firmado de manera autógrafa.</p>
+        <p>c) Reconocen que han tenido acceso previo al contenido íntegro del presente documento, que lo han leído, comprendido y aceptado sin error, dolo, mala fe, violencia o cualquier otro vicio del consentimiento.</p>
+        <p>d) Reconocen y aceptan la <b>naturaleza tecnológica</b> de la Plataforma y los roles claramente diferenciados de las partes: DEVIO actúa exclusivamente como proveedor de una herramienta tecnológica; el Desarrollador es el único responsable de su actividad inmobiliaria y de la información que administre en la Plataforma; y el Usuario accede únicamente para consultar la información que el Desarrollador ponga a su disposición.</p>
+        <p>e) Aceptan que el presente documento no crea relación alguna de sociedad, asociación, mandato, agencia, representación, comisión, franquicia, intermediación, prestación de servicios profesionales ni relación laboral entre DEVIO y el Desarrollador o el Usuario.</p>
+        <p>f) Manifiestan que el presente documento constituye el <b>acuerdo total</b> entre las partes respecto de su objeto, dejando sin efectos cualquier negociación, comunicación, entendimiento o acuerdo previo, ya sea verbal o escrito.</p>
+
+        <h2 id="definiciones">DEFINICIONES GENERALES</h2>
+        <p>Para efectos del presente documento, los términos que a continuación se indican tendrán el significado que en cada caso se les atribuye:</p>
+        <p><b>Plataforma:</b> La herramienta tecnológica identificada comercialmente como <b>DEVIO</b>, accesible a través de aplicaciones web y móviles, bajo un modelo Software as a Service (SaaS).</p>
+        <p><b>DEVIO:</b> La marca comercial bajo la cual <b>Jinh Capital, S.A.P.I. de C.V.</b> opera y administra la Plataforma, actuando exclusivamente como proveedor de una herramienta tecnológica.</p>
+        <p><b>Usuario:</b> Cualquier persona física que accede y utiliza la Plataforma, ya sea en su carácter de cliente final del Desarrollador o como usuario habilitado por este.</p>
+        <p><b>Desarrollador:</b> La persona física o moral que contrata directamente los servicios de la Plataforma bajo un esquema de suscripción.</p>
+        <p><b>Cliente Final:</b> La persona física que accede a la Plataforma y/o a la aplicación móvil asociada por invitación o habilitación del Desarrollador.</p>
+        <p><b>Servicios:</b> El acceso y uso de la Plataforma, incluyendo sus funcionalidades, herramientas, módulos y recursos tecnológicos.</p>
+        <p><b>Contenido:</b> Cualquier información, dato, archivo, documento, texto, imagen, contrato, identificación, material o elemento cargado, administrado o generado por el Desarrollador o el Usuario a través de la Plataforma.</p>
+        <p><b>Datos Personales:</b> Cualquier información que identifique o haga identificable a una persona física tratada a través de la Plataforma.</p>
+        <p><b>Stripe:</b> El proveedor externo e independiente de servicios de procesamiento de pagos utilizado para la gestión de cobros relacionados con las suscripciones a la Plataforma.</p>
+        <p><b>Suscripción:</b> El esquema de contratación mediante el cual el Desarrollador adquiere el derecho de acceso y uso de la Plataforma, bajo modalidad mensual o anual.</p>
+        <p><b>Información Confidencial:</b> Toda información no pública a la que se tenga acceso con motivo del uso de la Plataforma, incluyendo información técnica, comercial, operativa, datos personales, documentos oficiales y credenciales de acceso.</p>
+
+        <h2 id="c1">CLÁUSULA PRIMERA. OBJETO DEL SERVICIO</h2>
+
+        <h3>a) Descripción general del software</h3>
+        <p>DEVIO es una plataforma tecnológica accesible a través de aplicaciones web y móviles, diseñada para funcionar como una herramienta digital de gestión y administración para desarrolladores inmobiliarios, que permite, entre otras funcionalidades, la organización, almacenamiento, consulta y seguimiento de información relacionada con desarrollos inmobiliarios, inventarios, clientes, documentos, avances de obra, estados informativos y procesos administrativos, conforme a las funcionalidades habilitadas en cada momento.</p>
+
+        <h3>b) Naturaleza SaaS</h3>
+        <p>Las partes reconocen y aceptan que la Plataforma opera bajo un modelo <b>Software as a Service (SaaS)</b>, mediante el cual DEVIO concede al Desarrollador y al Usuario un derecho de acceso y uso temporal, limitado, no exclusivo, no transferible y revocable, sin que ello implique la entrega, cesión o transmisión del software, del código fuente ni de los desarrollos tecnológicos que lo integran.</p>
+
+        <h3>c) Carácter de herramienta tecnológica</h3>
+        <p>DEVIO actúa única y exclusivamente como <b>proveedor de una herramienta tecnológica</b>. En ningún caso DEVIO participa, valida, supervisa, controla o garantiza la veracidad, legalidad, exactitud o actualización de la información, documentos o contenidos que el Desarrollador administre o ponga a disposición del Usuario a través de la Plataforma.</p>
+
+        <h3>d) Exclusión de servicios profesionales</h3>
+        <p>Las partes reconocen expresamente que el uso de la Plataforma <b>no constituye</b>, ni debe interpretarse como, la prestación de servicios inmobiliarios, legales, fiscales, financieros, contables, administrativos o de asesoría profesional de ningún tipo por parte de DEVIO.</p>
+
+        <h2 id="c2">CLÁUSULA SEGUNDA. TIPOS DE USUARIOS Y ROLES</h2>
+
+        <h3>a) Desarrolladores inmobiliarios</h3>
+        <p>El <b>Desarrollador</b> es la persona física o moral que contrata los servicios de DEVIO bajo un esquema de suscripción y que utiliza la Plataforma como herramienta tecnológica para la gestión de sus desarrollos inmobiliarios. El Desarrollador es el <b>usuario principal y administrador</b> de su cuenta y es el único facultado para dar de alta usuarios, cargar información, definir niveles de acceso y determinar las funcionalidades habilitadas.</p>
+
+        <h3>b) Usuarios internos del Desarrollador</h3>
+        <p>Son aquellas personas físicas que acceden a la Plataforma por instrucción y autorización del Desarrollador (empleados, colaboradores, representantes). Actúan <b>por cuenta y bajo la responsabilidad exclusiva del Desarrollador</b>, quien reconoce que cualquier acto realizado por dichos usuarios dentro de la Plataforma se entenderá efectuado como si lo hubiera realizado directamente el propio Desarrollador.</p>
+
+        <h3>c) Clientes finales</h3>
+        <p>Los <b>clientes finales</b> son las personas físicas que acceden a la Plataforma con el único propósito de consultar la información que el Desarrollador haya decidido poner a su disposición. El cliente final no contrata servicios con DEVIO, no paga contraprestación alguna a DEVIO y <b>no adquiere derechos adicionales</b> más allá del acceso limitado que le sea habilitado por el Desarrollador.</p>
+
+        <h3>d) Alcance de permisos y visualización</h3>
+        <p>Los permisos, accesos y niveles de visualización dentro de la Plataforma son <b>configurados y controlados exclusivamente por el Desarrollador</b>. DEVIO no interviene en la asignación de permisos ni garantiza ni responde por errores en la configuración de accesos o por accesos indebidos derivados de decisiones del Desarrollador.</p>
+
+        <h2 id="c3">CLÁUSULA TERCERA. REGISTRO, ACCESO Y USO DE CUENTAS</h2>
+
+        <h3>a) Requisitos de alta</h3>
+        <p>Para acceder a la Plataforma, el Desarrollador deberá completar el proceso de registro proporcionando información veraz, completa y actualizada. DEVIO se reserva el derecho de aceptar, rechazar o suspender solicitudes de registro que no cumplan con los requisitos establecidos o que presenten inconsistencias.</p>
+
+        <h3>b) Creación de credenciales</h3>
+        <p>El acceso a la Plataforma se realizará mediante credenciales de autenticación personalizadas. El Desarrollador y el Usuario son responsables de mantener la confidencialidad de sus credenciales. DEVIO no será responsable por accesos realizados mediante el uso de credenciales válidas, aun cuando hayan sido utilizadas por terceros no autorizados.</p>
+
+        <h3>c) Responsabilidad por uso de la cuenta</h3>
+        <p>El Desarrollador será <b>plenamente responsable</b> de todas las actividades que se realicen a través de su cuenta, así como de las cuentas de los usuarios que habilite. Cualquier acto realizado dentro de la Plataforma mediante una cuenta activa se presumirá realizado por el titular de dicha cuenta.</p>
+
+        <h3>d) Prohibición de cesión</h3>
+        <p>Las cuentas de acceso a la Plataforma son <b>personales, intransferibles y no susceptibles de cesión</b> a terceros. Queda estrictamente prohibido vender, arrendar, sublicenciar, compartir o permitir el uso de una cuenta por personas no autorizadas.</p>
+
+        <h3>e) Uso no autorizado</h3>
+        <p>El Desarrollador y el Usuario se obligan a notificar de inmediato a DEVIO cualquier acceso no autorizado, uso indebido o vulneración de seguridad relacionada con sus cuentas. DEVIO podrá suspender temporal o definitivamente las cuentas afectadas sin que ello genere responsabilidad alguna a su cargo.</p>
+
+        <h2 id="c4">CLÁUSULA CUARTA. ALCANCES Y LIMITACIONES DEL SERVICIO</h2>
+
+        <h3>a) Funcionalidades disponibles</h3>
+        <p>DEVIO pone a disposición de los usuarios las funcionalidades de la Plataforma conforme al plan de suscripción contratado. DEVIO se reserva el derecho de añadir, modificar, restringir o eliminar funcionalidades, de manera temporal o permanente, sin que ello implique obligación de mantener características específicas.</p>
+
+        <h3>b) Dependencia tecnológica</h3>
+        <p>Las partes reconocen que el funcionamiento de la Plataforma depende de factores tecnológicos ajenos al control de DEVIO, tales como servicios de internet, infraestructura de terceros, dispositivos, sistemas operativos y proveedores tecnológicos externos. En consecuencia, DEVIO no garantiza la disponibilidad continua e ininterrumpida de la Plataforma.</p>
+
+        <h3>c) Servicios "tal como están"</h3>
+        <p>La Plataforma se proporciona <b>"tal como está" y "según disponibilidad"</b>, sin garantías de ningún tipo. DEVIO no garantiza que la Plataforma sea libre de errores, que satisfaga expectativas específicas, ni que su operación sea ininterrumpida, segura o completamente libre de fallas técnicas.</p>
+
+        <h2 id="c5">CLÁUSULA QUINTA. PLANES, PRECIOS Y SUSCRIPCIONES</h2>
+
+        <h3>a) Modalidad mensual y anual</h3>
+        <p>El acceso a la Plataforma se ofrece bajo un esquema de <b>suscripción</b> en modalidad <b>mensual o anual</b>, conforme a los planes, alcances, precios y condiciones vigentes al momento de la contratación. DEVIO se reserva el derecho de definir, modificar o eliminar planes de suscripción.</p>
+
+        <h3>b) Periodos de prueba</h3>
+        <p>DEVIO podrá, a su sola discreción, ofrecer <b>periodos de prueba, accesos temporales o promociones</b>, los cuales estarán sujetos a las condiciones específicas que se indiquen en cada caso. La finalización de un periodo de prueba no genera obligación alguna para DEVIO de mantener condiciones preferenciales.</p>
+
+        <h3>c) Renovaciones automáticas</h3>
+        <p>Salvo que se indique expresamente lo contrario, las suscripciones se renovarán de manera automática por periodos iguales al originalmente contratado, mediante el cargo correspondiente al medio de pago registrado. DEVIO notificará al Desarrollador la próxima renovación con una anticipación razonable. El Desarrollador podrá cancelar la renovación automática de manera directa, sencilla e inmediata a través de la Plataforma.</p>
+
+        <h3>d) Cambios de precios</h3>
+        <p>DEVIO podrá modificar los precios de los planes en cualquier momento. Cualquier cambio será notificado con antelación razonable y aplicable a partir del siguiente periodo de renovación. El uso continuo de la Plataforma una vez que el nuevo precio entre en vigor constituirá aceptación expresa del mismo.</p>
+
+        <h3>e) Impuestos</h3>
+        <p>Todos los precios publicados o informados se entienden <b>antes de impuestos</b>, por lo que los impuestos aplicables conforme a la legislación fiscal vigente serán trasladados al Desarrollador en el momento del cobro correspondiente.</p>
+
+        <h3>f) No reembolsos</h3>
+        <p>Salvo disposición expresa en contrario, <b>todas las cantidades pagadas por concepto de suscripción son definitivas y no reembolsables</b>, independientemente del uso efectivo de la Plataforma, de interrupciones temporales, de cancelaciones anticipadas o de la terminación del servicio por causas imputables al Desarrollador o a sus usuarios.</p>
+
+        <h2 id="c6">CLÁUSULA SEXTA. PAGOS Y PROCESAMIENTO DE COBROS</h2>
+
+        <h3>a) Uso de Stripe como tercero independiente</h3>
+        <p>Los pagos de las suscripciones se procesan a través de <b>Stripe</b>, proveedor externo de servicios de procesamiento de pagos, quien actúa como <b>tercero independiente</b>. DEVIO no controla ni administra la operación interna de Stripe, por lo que no asume responsabilidad alguna por fallas, errores, rechazos, retenciones, cargos duplicados o cualquier incidencia atribuible a dicho proveedor.</p>
+
+        <h3>b) No almacenamiento de datos bancarios por DEVIO</h3>
+        <p>DEVIO <b>no almacena, procesa ni resguarda directamente</b> información bancaria, números de tarjeta, claves de seguridad ni datos financieros sensibles del Desarrollador. Dichos datos son gestionados exclusivamente por Stripe.</p>
+
+        <h3>c) Cancelaciones por impago</h3>
+        <p>En caso de que no sea posible procesar el cobro correspondiente a una suscripción, DEVIO podrá, sin necesidad de previo aviso: suspender temporalmente el acceso a la Plataforma; limitar funcionalidades; cancelar la suscripción de manera definitiva; y/o eliminar o restringir el acceso a la información. La suspensión o cancelación por impago <b>no libera</b> al Desarrollador de las obligaciones de pago previamente generadas ni genera derecho a reembolso alguno.</p>
+
+        <h2 id="c7">CLÁUSULA SÉPTIMA. USO PERMITIDO Y PROHIBIDO DE LA PLATAFORMA</h2>
+
+        <h3>a) Uso conforme a ley</h3>
+        <p>El Desarrollador y el Usuario se obligan a utilizar la Plataforma de manera lícita, conforme a la legislación aplicable, a los usos honestos del comercio y a lo dispuesto en el presente documento. En ningún caso la Plataforma deberá utilizarse para fines contrarios a la ley, al orden público o a derechos de terceros.</p>
+
+        <h3>b) Prohibiciones expresas</h3>
+        <p>Queda estrictamente prohibido utilizar la Plataforma para:</p>
+        <ul>
+          <li>realizar actos fraudulentos, engañosos o de mala fe;</li>
+          <li>vulnerar derechos de propiedad intelectual o industrial;</li>
+          <li>interferir con la seguridad, estabilidad o funcionamiento de la Plataforma;</li>
+          <li>acceder, intentar acceder o manipular información, cuentas o sistemas sin autorización;</li>
+          <li>utilizar la Plataforma para fines distintos a aquellos para los cuales fue diseñada.</li>
+        </ul>
+
+        <h3>c) Actividades ilícitas</h3>
+        <p>DEVIO no autoriza ni tolera el uso de la Plataforma para la realización de actividades ilícitas de ningún tipo. Cualquier indicio de uso indebido o ilegal podrá dar lugar a la suspensión inmediata del acceso, sin previo aviso y sin responsabilidad alguna para DEVIO.</p>
+
+        <h2 id="c8">CLÁUSULA OCTAVA. CONTENIDO, INFORMACIÓN Y DOCUMENTOS</h2>
+
+        <h3>a) Propiedad del contenido</h3>
+        <p>Todo contenido, información, datos y documentos que el Desarrollador o el Usuario carguen o administren a través de la Plataforma son y seguirán siendo propiedad de quien los haya proporcionado. El uso de la Plataforma no implica transferencia de titularidad alguna a favor de DEVIO.</p>
+
+        <h3>b) Responsabilidad exclusiva del Desarrollador</h3>
+        <p>El Desarrollador reconoce y acepta que es el <b>único responsable</b> del contenido que administre en la Plataforma, así como de su legalidad, veracidad, actualización y cumplimiento normativo, incluyendo el tratamiento de datos personales y la obtención de consentimientos necesarios.</p>
+
+        <h3>c) No verificación por DEVIO</h3>
+        <p>DEVIO no revisa, valida, supervisa ni verifica el contenido, información o documentos cargados en la Plataforma, por lo que no garantiza su exactitud, integridad, legalidad o vigencia.</p>
+
+        <h3>d) Derecho de suspensión o eliminación</h3>
+        <p>DEVIO se reserva el derecho, mas no la obligación, de suspender, restringir o eliminar contenido cuando tenga conocimiento de que el mismo pudiera infringir la ley, vulnerar derechos de terceros o contravenir lo dispuesto en el presente documento.</p>
+
+        <h2 id="c9">CLÁUSULA NOVENA. COMUNICACIONES, NOTIFICACIONES Y MARKETING</h2>
+
+        <h3>a) Mensajes operativos</h3>
+        <p>DEVIO podrá enviar comunicaciones de carácter operativo, técnico o administrativo relacionadas con el funcionamiento de la Plataforma. Dichas comunicaciones son necesarias para la correcta prestación del servicio.</p>
+
+        <h3>b) Mensajes promocionales</h3>
+        <p>DEVIO y/o el Desarrollador podrán enviar comunicaciones de carácter informativo o promocional, siempre que se cuente con el consentimiento correspondiente conforme a la legislación aplicable.</p>
+
+        <h3>c) Configuración de preferencias</h3>
+        <p>En la medida en que la Plataforma lo permita, el Usuario podrá configurar sus preferencias de comunicación. La desactivación de mensajes promocionales no afectará la recepción de comunicaciones operativas indispensables.</p>
+
+        <h2 id="c10">CLÁUSULA DÉCIMA. DISPONIBILIDAD DEL SERVICIO</h2>
+
+        <h3>a) Esquema de "mejores esfuerzos"</h3>
+        <p>DEVIO se obliga a realizar <b>sus mejores esfuerzos razonables</b> para mantener la disponibilidad y correcto funcionamiento de la Plataforma. El Desarrollador y el Usuario reconocen que dicho compromiso no constituye una garantía absoluta de disponibilidad continua.</p>
+
+        <h3>b) Mantenimiento e interrupciones</h3>
+        <p>DEVIO podrá realizar en cualquier momento labores de mantenimiento preventivo o correctivo. DEVIO no será responsable por interrupciones derivadas de causas ajenas a su control, incluyendo fallas en servicios de internet, energía eléctrica, infraestructura de terceros, actos de autoridad, caso fortuito o fuerza mayor.</p>
+
+        <h3>c) Exclusión de garantía de continuidad</h3>
+        <p>La Plataforma se pone a disposición <b>sin garantía de continuidad, disponibilidad ininterrumpida o ausencia de errores</b>, por lo que DEVIO no asume responsabilidad alguna por daños, pérdidas o afectaciones derivadas de la imposibilidad temporal o definitiva de acceder a la Plataforma.</p>
+
+        <h2 id="c11">CLÁUSULA DÉCIMA PRIMERA. SUSPENSIÓN, TERMINACIÓN Y CANCELACIÓN</h2>
+
+        <h3>a) Por impago</h3>
+        <p>En caso de falta de pago oportuno, DEVIO podrá, sin necesidad de previo aviso, suspender total o parcialmente el acceso a la Plataforma, limitar funcionalidades o cancelar la suscripción del Desarrollador, sin que ello genere derecho a reembolso o indemnización alguna.</p>
+
+        <h3>b) Por uso indebido o violación contractual</h3>
+        <p>DEVIO podrá suspender o cancelar el acceso cuando detecte o tenga indicios razonables de un uso indebido, ilegal, fraudulento o contrario a lo dispuesto en el presente documento. El incumplimiento a cualquiera de las obligaciones previstas facultará a DEVIO para dar por terminada la relación contractual de manera inmediata.</p>
+
+        <h3>c) Consecuencias de la terminación</h3>
+        <p>La suspensión, terminación o cancelación implicará la pérdida inmediata del derecho de uso de la Plataforma, sin que ello libere al Desarrollador de las obligaciones económicas o legales previamente generadas. DEVIO podrá conservar cierta información y registros de manera limitada y temporal, únicamente para fines de respaldo, cumplimiento legal o atención de responsabilidades.</p>
+
+        <h2 id="c12">CLÁUSULA DÉCIMA SEGUNDA. PROPIEDAD INTELECTUAL</h2>
+
+        <h3>a) Titularidad de DEVIO</h3>
+        <p>La Plataforma, incluyendo su software, código, diseño, arquitectura, interfaces, bases de datos, marcas, nombres comerciales, logotipos, textos, gráficos y demás elementos que la integran, son propiedad exclusiva de DEVIO o de terceros que le han otorgado las licencias correspondientes.</p>
+
+        <h3>b) Licencia de uso limitada</h3>
+        <p>DEVIO concede al Desarrollador y al Usuario una <b>licencia de uso limitada, revocable, no exclusiva, no transferible y sin derecho a sublicenciar</b>, exclusivamente para acceder y utilizar la Plataforma conforme a lo establecido en el presente documento.</p>
+
+        <h3>c) Prohibiciones de reproducción</h3>
+        <p>Queda estrictamente prohibido copiar, reproducir, modificar, distribuir, descompilar, realizar ingeniería inversa, explotar comercialmente o crear obras derivadas de la Plataforma o de cualquiera de sus elementos, sin autorización previa y por escrito de DEVIO.</p>
+
+        <h3>d) Feedback del usuario</h3>
+        <p>Cualquier comentario, sugerencia o retroalimentación que el Desarrollador o el Usuario proporcionen respecto de la Plataforma podrá ser utilizada libremente por DEVIO, sin que ello genere derecho a compensación, reconocimiento o reclamación alguna.</p>
+
+        <h2 id="c13">CLÁUSULA DÉCIMA TERCERA. CONFIDENCIALIDAD</h2>
+
+        <h3>a) Obligaciones de los usuarios</h3>
+        <p>El Desarrollador y el Usuario se obligan a mantener estricta confidencialidad respecto de toda información no pública a la que tengan acceso a través de la Plataforma. Dicha obligación subsistirá aun después de la suspensión, terminación o cancelación del acceso a la Plataforma.</p>
+
+        <h3>b) Excepciones legales</h3>
+        <p>La obligación de confidencialidad no será aplicable respecto de información que sea de dominio público sin violación al presente documento; haya sido obtenida legítimamente de un tercero sin obligación de confidencialidad; o deba ser revelada por mandato legal, requerimiento de autoridad competente o resolución judicial.</p>
+
+        <h2 id="c14">CLÁUSULA DÉCIMA CUARTA. EXENCIONES Y LIMITACIONES DE RESPONSABILIDAD</h2>
+
+        <h3>a) No intermediación inmobiliaria ni asesoría profesional</h3>
+        <p>DEVIO no actúa como intermediario en operaciones inmobiliarias ni presta servicios de asesoría legal, fiscal, financiera, contable ni de ningún otro tipo profesional. Cualquier decisión adoptada con base en la información disponible en la Plataforma será bajo exclusiva responsabilidad del Desarrollador o del Usuario.</p>
+
+        <h3>b) Límite de daños</h3>
+        <p>En la máxima medida permitida por la legislación aplicable, la responsabilidad total de DEVIO quedará limitada al monto efectivamente pagado por el Desarrollador durante los <b>tres meses inmediatos anteriores</b> al evento que haya dado origen a la reclamación.</p>
+
+        <h3>c) Daños indirectos y fuerza mayor</h3>
+        <p>DEVIO no será responsable por daños indirectos, incidentales, especiales, punitivos o consecuenciales, incluyendo pérdida de ingresos, utilidades, datos u oportunidades de negocio. DEVIO no será responsable por incumplimientos derivados de eventos de caso fortuito o fuerza mayor.</p>
+
+        <h2 id="c15">CLÁUSULA DÉCIMA QUINTA. INDEMNIZACIÓN</h2>
+        <p>El Desarrollador se obliga a <b>sacar en paz y a salvo</b> e <b>indemnizar</b> a DEVIO, sus accionistas, administradores, representantes, empleados y colaboradores, frente a cualquier reclamación, demanda, procedimiento, sanción, multa, daño, perjuicio, costo u honorario que se derive de:</p>
+        <ul>
+          <li>el uso de la Plataforma por parte del Desarrollador, sus usuarios internos o clientes finales;</li>
+          <li>el incumplimiento del presente documento; o</li>
+          <li>la actividad inmobiliaria del Desarrollador.</li>
+        </ul>
+        <p>El Desarrollador será responsable exclusivo de cualquier reclamación relacionada con el uso indebido, tratamiento incorrecto o divulgación no autorizada de datos personales que cargue o administre en la Plataforma.</p>
+
+        <h2 id="c16">CLÁUSULA DÉCIMA SEXTA. MODIFICACIONES A LOS TÉRMINOS</h2>
+        <p>DEVIO se reserva el derecho de <b>modificar, actualizar, adicionar o eliminar</b>, en cualquier momento y a su sola discreción, el contenido del presente documento. DEVIO notificará las modificaciones a través de la Plataforma, mediante mensajes internos, notificaciones electrónicas o correos electrónicos. El acceso, uso o permanencia en la Plataforma con posterioridad a la entrada en vigor de las modificaciones se entenderá como aceptación tácita del contenido actualizado.</p>
+
+        <h2 id="c17">CLÁUSULA DÉCIMA SÉPTIMA. LEGISLACIÓN APLICABLE Y JURISDICCIÓN</h2>
+        <p>El presente documento se regirá e interpretará en todo momento conforme a las <b>leyes vigentes de los Estados Unidos Mexicanos</b>. Para la interpretación, cumplimiento y ejecución del presente documento, las partes se someten expresamente a la <b>competencia de los tribunales competentes de la ciudad de Guadalajara, Estado de Jalisco</b>, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.</p>
+
+        <h2 id="generales">CLÁUSULAS GENERALES</h2>
+
+        <h3>Independencia de cláusulas</h3>
+        <p>La nulidad, invalidez o inaplicabilidad de cualquiera de las cláusulas del presente documento no afectará la validez, legalidad ni exigibilidad de las demás, las cuales permanecerán vigentes y plenamente obligatorias en la medida permitida por la legislación aplicable.</p>
+
+        <h3>No renuncia de derechos</h3>
+        <p>La falta o demora de DEVIO en el ejercicio de cualquier derecho, facultad o acción derivada del presente documento no se interpretará como una renuncia a los mismos, ni impedirá su ejercicio posterior, ya sea de manera parcial o total.</p>
+
+        <h3>Cesión</h3>
+        <p>El Desarrollador y el Usuario no podrán ceder, transmitir ni delegar, total o parcialmente, los derechos u obligaciones derivados del presente documento sin el consentimiento previo y por escrito de DEVIO. DEVIO podrá ceder o transferir el presente documento o los derechos derivados del mismo a cualquier tercero, sin necesidad de autorización adicional.</p>
+
+        <h3>Totalidad del acuerdo</h3>
+        <p>El presente documento constituye el acuerdo total entre las partes respecto de su objeto y sustituye cualquier negociación, comunicación, entendimiento o acuerdo previo, ya sea verbal o escrito.</p>
+
+        <h3>Idioma</h3>
+        <p>El presente documento se emite en idioma español. En caso de que exista cualquier traducción a otro idioma, la versión en español prevalecerá para todos los efectos legales.</p>
+
+        <div class="privacy-highlight">
+          <p><b>LEÍDO Y ACEPTADO.</b> Habiendo leído y comprendido en su totalidad el contenido del presente documento, y estando de acuerdo con todos y cada uno de sus términos y condiciones, se manifiesta la aceptación expresa del mismo para todos los efectos legales a que haya lugar.</p>
+          <p style="margin-top:12px;"><b>DEVIO</b></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" />
+        </a>
+        <p>La plataforma SaaS que centraliza la operación de desarrolladoras inmobiliarias en México.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>Producto</h5>
+          <ul>
+            <li><a href="index.html#features">Funcionalidades</a></li>
+            <li><a href="index.html#benefits-client">App clientes</a></li>
+            <li><a href="index.html#benefits-dev">Beneficios</a></li>
+            <li><a href="index.html#how">Cómo funciona</a></li>
+            <li><a href="index.html#cta">Solicitar demo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="index.html#cta">Contacto</a></li>
+            <li><a href="privacidad.html">Privacidad</a></li>
+            <li><a href="terminos.html">Términos de uso</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-right-section">
+          <h5>Síguenos</h5>
+          <div class="fsocials">
+            <a href="https://instagram.com/deviomx" class="fsocial" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://facebook.com" class="fsocial" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-right-section">
+          <h5>Pagos seguros</h5>
+          <div class="fpay-logos">
+            <div class="fpay-badge" title="Stripe"><svg width="34" height="14" viewBox="0 0 34 14" fill="none"><text x="0" y="11" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">stripe</text></svg></div>
+            <div class="fpay-badge" title="Visa"><svg width="30" height="14" viewBox="0 0 30 14" fill="none"><text x="0" y="11" font-family="Arial, sans-serif" font-size="12" font-weight="900" fill="rgba(255,255,255,0.45)" letter-spacing="0.3">VISA</text></svg></div>
+            <div class="fpay-badge" title="Mastercard"><svg width="28" height="18" viewBox="0 0 28 18" fill="none"><circle cx="10" cy="9" r="8" fill="rgba(235,0,27,0.45)"/><circle cx="18" cy="9" r="8" fill="rgba(255,163,0,0.4)"/></svg></div>
+            <div class="fpay-badge" title="American Express"><svg width="36" height="14" viewBox="0 0 36 14" fill="none"><text x="0" y="11" font-family="Arial, sans-serif" font-size="9.5" font-weight="800" fill="rgba(255,255,255,0.45)" letter-spacing="0.3">AMEX</text></svg></div>
+          </div>
+          <a href="mailto:contacto@deviomx.com" class="footer-email">contacto@deviomx.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <span class="footer-gold">Devio</span>. Todos los derechos reservados.</p>
+      <p class="footer-copy">Hecho en México 🇲🇽</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.addEventListener('click', (e) => { if (e.target.tagName === 'A') mobileMenu.classList.remove('open'); });
+</script>
+</body>
+</html>

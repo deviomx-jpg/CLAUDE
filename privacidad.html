@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviso de Privacidad — Devio</title>
+  <link rel="icon" type="image/png" href="Assets/Logo/favicon-tab.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .privacy-header {
+      background: linear-gradient(145deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy2) 100%);
+      padding: 140px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .privacy-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .035;
+      background-image: var(--noise-bg);
+      background-size: 256px 256px;
+    }
+    .privacy-header-inner { position: relative; z-index: 1; }
+    .privacy-header .tag { margin-bottom: 20px; }
+    .privacy-header h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .privacy-header p { font-size: 15px; color: rgba(230,233,239,0.6); margin-top: 8px; }
+    .privacy-body { background: var(--white); padding: 80px 0 120px; }
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .privacy-index { position: sticky; top: 100px; }
+    .privacy-index h6 {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .privacy-index ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .privacy-index ul li a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .2s;
+      line-height: 1.5;
+      display: block;
+    }
+    .privacy-index ul li a:hover { color: var(--gold2); }
+    .privacy-content h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .privacy-content h2 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-top: 48px;
+      margin-bottom: 12px;
+      padding-top: 48px;
+      border-top: 1px solid var(--gray);
+    }
+    .privacy-content h2:first-of-type { margin-top: 32px; padding-top: 32px; }
+    .privacy-content h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+    .privacy-content p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .privacy-content ul {
+      margin: 10px 0 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .privacy-content ul li { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+    .privacy-content b, .privacy-content strong { color: var(--navy); font-weight: 600; }
+    .privacy-content a { color: var(--gold2); text-decoration: none; }
+    .privacy-content a:hover { text-decoration: underline; }
+    .privacy-content hr { border: none; border-top: 1px solid var(--gray); margin: 40px 0; }
+    .privacy-highlight {
+      background: rgba(199,178,139,0.08);
+      border: 1px solid rgba(199,178,139,0.25);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .privacy-highlight p { margin-bottom: 0; }
+    @media (max-width: 900px) {
+      .privacy-layout { grid-template-columns: 1fr; gap: 40px; }
+      .privacy-index { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar" class="scrolled">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Funciones</a></li>
+        <li><a href="index.html#benefits-client">App Clientes</a></li>
+        <li><a href="index.html#benefits-dev">Beneficios</a></li>
+        <li><a href="index.html#how">Cómo funciona</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html" class="btn btn-login">Inicio</a>
+        <a href="index.html#cta" class="btn btn-gold">Solicitar demo</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#features">Funciones</a>
+  <a href="index.html#benefits-client">App Clientes</a>
+  <a href="index.html#benefits-dev">Beneficios</a>
+  <a href="index.html#how">Cómo funciona</a>
+  <div class="mobile-menu-actions">
+    <a href="index.html" class="btn btn-login">Inicio</a>
+    <a href="index.html#cta" class="btn btn-gold">Solicitar demo</a>
+  </div>
+</div>
+
+<div class="privacy-header">
+  <div class="container privacy-header-inner">
+    <span class="tag">Legal</span>
+    <h1>Aviso de Privacidad Integral</h1>
+    <p>Plataforma "DEVIO" — Última actualización: julio 2026</p>
+  </div>
+</div>
+
+<div class="privacy-body">
+  <div class="container">
+    <div class="privacy-layout">
+
+      <nav class="privacy-index">
+        <h6>Contenido</h6>
+        <ul>
+          <li><a href="#s1">1. Identidad del responsable</a></li>
+          <li><a href="#s2">2. Datos que se recaban</a></li>
+          <li><a href="#s3">3. Datos sensibles</a></li>
+          <li><a href="#s4">4. Finalidades</a></li>
+          <li><a href="#s5">5. Rol del Responsable</a></li>
+          <li><a href="#s6">6. Transferencias</a></li>
+          <li><a href="#s7">7. Medidas de seguridad</a></li>
+          <li><a href="#s8">8. Cookies</a></li>
+          <li><a href="#s9">9. Conservación y eliminación</a></li>
+          <li><a href="#s10">10. Derechos ARCO</a></li>
+          <li><a href="#s11">11. Revocación</a></li>
+          <li><a href="#s12">12. Cambios al Aviso</a></li>
+          <li><a href="#s13">13. Limitar uso de datos</a></li>
+          <li><a href="#anexo1">Anexo 1 — Formato ARCO</a></li>
+        </ul>
+      </nav>
+
+      <div class="privacy-content">
+
+        <h1>AVISO DE PRIVACIDAD INTEGRAL</h1>
+        <p>PLATAFORMA "DEVIO"</p>
+
+        <h2 id="s1">1. Identidad del responsable y domicilio para oír y recibir notificaciones</h2>
+        <p><b>Jinh Capital, S.A.P.I. de C.V.</b> (en lo sucesivo, el <b>"Responsable"</b>), operadora y administradora de la plataforma tecnológica identificada comercialmente como <b>"DEVIO"</b> (en lo sucesivo, la <b>"Plataforma"</b>), es el responsable del tratamiento de los datos personales que se recaben a través de la Plataforma.</p>
+        <p>El Responsable señala como <b>domicilio para oír y recibir notificaciones</b> el ubicado en <b>Avenida Américas número 1930, Piso 10, Unidad Privativa 2, Colonia Country Club, Código Postal 44610, Guadalajara, Jalisco</b>.</p>
+        <p>Correo electrónico para atención de privacidad y derechos ARCO: <b><a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></b>.</p>
+
+        <h2 id="s2">2. Datos personales que se recaban y tratan</h2>
+        <p>El Responsable tratará únicamente los datos personales que sean necesarios, determinados y proporcionales para las finalidades previstas en este Aviso, distinguiéndose los siguientes:</p>
+
+        <h3>2.1. Datos personales de identificación directa</h3>
+        <p>Nombre y apellidos; correo electrónico; número telefónico; Registro Federal de Contribuyentes; datos de facturación; firma autógrafa digitalizada cuando sea cargada por el Desarrollador; e imágenes de documentos oficiales de identificación cuando sean cargadas por el Desarrollador.</p>
+
+        <h3>2.2. Datos personales de identificación indirecta</h3>
+        <p>Identificadores de cuenta y usuario; registros de acceso; dirección IP; identificadores de dispositivo; metadatos técnicos derivados del uso de la Plataforma; registros de actividad dentro de la Plataforma; información contractual asociada a la operación del Desarrollador dentro de la Plataforma; información patrimonial relacionada con operaciones o unidades inmobiliarias del Desarrollador vinculadas a un titular; y registros operativos que, por su asociación con otros datos, permitan identificar al titular.</p>
+
+        <h3>2.3. Datos personales de terceros cargados por el Desarrollador</h3>
+        <p>La Plataforma permite que el <b>Desarrollador</b> cargue y administre datos personales de sus clientes y prospectos. En esos supuestos, el Responsable actúa como proveedor tecnológico de la Plataforma y el tratamiento se realiza conforme a lo establecido en el apartado 5 de este Aviso.</p>
+
+        <h2 id="s3">3. Datos personales sensibles tratados</h2>
+        <p>Para efectos de este Aviso, el Responsable <b>sí puede tratar datos personales sensibles</b>, exclusivamente cuando el Desarrollador los cargue o administre en la Plataforma como parte de su operación. En particular, se consideran sensibles, por su naturaleza y por el nivel de riesgo, los siguientes:</p>
+        <p>Identificación oficial (INE o equivalente) en la medida en que contenga fotografía y datos biométricos visibles; información patrimonial contenida en contratos, estados de cuenta, comprobantes de pago o documentos análogos; y cualquier documento que revele de manera directa o razonablemente inferible la situación económica, patrimonial o financiera del titular.</p>
+        <p>El Responsable no utiliza datos sensibles para finalidades secundarias. Su tratamiento se limita a las finalidades primarias necesarias para la operación de la Plataforma, y se sujetará a medidas de seguridad reforzadas conforme al apartado 7.</p>
+
+        <h2 id="s4">4. Finalidades del tratamiento</h2>
+
+        <h3>4.1. Finalidades primarias necesarias</h3>
+        <p>Los datos personales serán tratados para las siguientes finalidades primarias:</p>
+        <p>Permitir el registro y autenticación de usuarios; crear, administrar y operar cuentas, perfiles, roles y permisos; habilitar el acceso del Usuario a la información que el Desarrollador determine dentro de la Plataforma; prestar el servicio tecnológico y mantener la operación, continuidad, funcionalidad y seguridad de la Plataforma; gestionar la relación contractual con el Desarrollador, incluyendo alta, administración de suscripción, facturación y atención de soporte; administrar comunicaciones operativas indispensables relacionadas con el servicio; atender solicitudes, aclaraciones y requerimientos relacionados con el uso de la Plataforma; cumplir obligaciones legales y atender requerimientos de autoridad competente.</p>
+
+        <h3>4.2. Finalidades secundarias</h3>
+        <p>De manera adicional, los datos personales podrán ser tratados para:</p>
+        <p>Enviar comunicaciones informativas o promocionales sobre funcionalidades, mejoras, actualizaciones comerciales o contenidos relacionados con DEVIO; realizar análisis estadísticos internos de uso para mejora de la experiencia y desempeño de la Plataforma, procurando el uso de datos agregados cuando sea técnicamente posible.</p>
+
+        <h3>4.3. Negativa a finalidades secundarias</h3>
+        <p>El titular puede <b>negar o revocar</b> su consentimiento para finalidades secundarias <b>en cualquier momento</b> enviando un correo a <b><a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></b> con el asunto "Negativa a finalidades secundarias" e indicando su nombre completo y el correo asociado a su cuenta.</p>
+        <p>La negativa para finalidades secundarias <b>no será motivo para negar el servicio</b> ni afectará el acceso y uso de la Plataforma respecto de las finalidades primarias necesarias.</p>
+
+        <h2 id="s5">5. Rol del Responsable y rol del Desarrollador</h2>
+        <p>La Plataforma es una herramienta tecnológica. En los flujos en los que el Desarrollador carga, administra, organiza o determina el uso de datos personales de sus clientes dentro de la Plataforma, el <b>Desarrollador</b> actúa como <b>responsable</b> frente a dichos titulares, al decidir las finalidades y medios del tratamiento.</p>
+        <p>En dichos supuestos, el Responsable actúa como <b>proveedor tecnológico</b> y, respecto de ese tratamiento, opera como <b>encargado</b> en términos prácticos, prestando servicios tecnológicos para el Desarrollador. En consecuencia, el Desarrollador es quien debe contar con bases legales y consentimientos necesarios para cargar y administrar datos personales en la Plataforma, así como atender, cuando corresponda, solicitudes y obligaciones frente a sus titulares.</p>
+        <p>No existe corresponsabilidad entre el Responsable y el Desarrollador por el tratamiento de los datos personales de los clientes del Desarrollador cargados en la Plataforma, salvo que, de forma expresa, el Responsable determine finalidades propias distintas a la mera prestación tecnológica.</p>
+
+        <h2 id="s6">6. Transferencias de datos personales y consentimiento</h2>
+        <p>El Responsable podrá realizar transferencias de datos personales únicamente en los siguientes supuestos:</p>
+        <p>A proveedores tecnológicos que apoyen la operación de la Plataforma (por ejemplo, infraestructura de nube, mensajería transaccional, soporte técnico, monitoreo de seguridad y desempeño), en la medida estrictamente necesaria para prestar el servicio; a procesadores de pago, incluyendo <b>Stripe</b>, para gestionar cobros de suscripciones del Desarrollador; y a autoridades competentes cuando exista requerimiento fundado y motivado o obligación legal.</p>
+
+        <h3>6.1. Consentimiento para transferencias</h3>
+        <p>Cuando una transferencia <b>requiera consentimiento</b>, este se recabará de forma <b>expresa, previa e informada</b>, mediante mecanismos electrónicos. Cuando una transferencia <b>no requiera consentimiento</b> por ubicarse en supuestos permitidos por la normativa aplicable, el Responsable podrá realizarla limitándose a lo estrictamente solicitado o necesario.</p>
+        <p>En todos los casos, el Responsable procurará que los terceros receptores traten los datos conforme a instrucciones y medidas de seguridad razonables, según su rol aplicable.</p>
+
+        <h2 id="s7">7. Medidas de seguridad</h2>
+        <p>El Responsable implementa medidas de seguridad <b>administrativas, técnicas y físicas</b> razonables para proteger los datos personales contra daño, pérdida, alteración, destrucción, uso, acceso o tratamiento no autorizado. Estas medidas incluyen controles de acceso, gestión de credenciales, medidas de resguardo y procedimientos internos.</p>
+        <p>Por la naturaleza de los sistemas informáticos y comunicaciones por internet, no es posible garantizar seguridad absoluta. No obstante, el Responsable adopta medidas razonables y actualizables para mitigar riesgos.</p>
+
+        <h2 id="s8">8. Cookies y tecnologías de rastreo</h2>
+        <p>La Plataforma y el sitio web asociado pueden utilizar cookies, web beacons, almacenamiento local, registros de servidor, identificadores de dispositivo y tecnologías similares para permitir el funcionamiento técnico, mantener sesión, autenticar usuarios, prevenir fraude, generar registros de seguridad, medir rendimiento y realizar analítica de uso.</p>
+        <p>El titular puede deshabilitar cookies desde su navegador o ajustar permisos en su dispositivo; sin embargo, algunas funciones pueden verse afectadas o dejar de operar correctamente.</p>
+
+        <h2 id="s9">9. Conservación, respaldos y eliminación</h2>
+        <p>Los datos personales se conservarán durante el tiempo necesario para cumplir las finalidades primarias y mientras subsista la relación con el titular o con el Desarrollador, según corresponda, así como por los plazos necesarios para el cumplimiento de obligaciones legales.</p>
+        <p>El Responsable podrá mantener respaldos limitados por razones de continuidad operativa, seguridad, auditoría y recuperación ante contingencias, por periodos razonables conforme a prácticas técnicas. Una vez concluidos los plazos de conservación, los datos se eliminarán o, cuando sea viable, se anonimizarán.</p>
+
+        <h2 id="s10">10. Derechos ARCO y plazos verificables</h2>
+        <p>El titular podrá ejercer los derechos de <b>Acceso, Rectificación, Cancelación u Oposición</b> mediante solicitud enviada al correo <b><a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></b>, o utilizando el formato del Anexo 1.</p>
+        <p>El Responsable observará los siguientes plazos:</p>
+        <ul>
+          <li>Acuse de recibo dentro de los <b>5 días hábiles</b> siguientes a la recepción de la solicitud.</li>
+          <li>Determinación sobre la procedencia en un plazo máximo de <b>20 días hábiles</b> desde la recepción completa.</li>
+          <li>De resultar procedente, efectividad de la determinación dentro de los <b>15 días hábiles</b> siguientes a la respuesta.</li>
+        </ul>
+        <p>Cuando la solicitud sea incompleta o no sea posible acreditar identidad o representación, el Responsable requerirá información adicional dentro de un plazo razonable y el cómputo de plazos iniciará a partir de que el solicitante atienda el requerimiento.</p>
+
+        <h2 id="s11">11. Revocación del consentimiento</h2>
+        <p>El titular podrá revocar en cualquier momento el consentimiento otorgado para el tratamiento de sus datos personales, mediante solicitud enviada a <b><a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></b>. La revocación no tendrá efectos retroactivos y no procederá respecto de tratamientos necesarios para cumplir obligaciones legales o para la ejecución de la relación jurídica vigente, en la medida aplicable.</p>
+
+        <h2 id="s12">12. Cambios al Aviso de Privacidad</h2>
+        <p>El Responsable podrá actualizar este Aviso por cambios legales, operativos o tecnológicos. Sin embargo, el Responsable reconoce que existen supuestos que obligan a emitir <b>un nuevo Aviso de Privacidad</b> y, en su caso, recabar <b>nuevo consentimiento</b>.</p>
+
+        <h3>12.1. Supuestos que requieren nuevo Aviso y consentimiento expreso</h3>
+        <p>Se emitirá un nuevo Aviso y se recabará consentimiento expreso cuando ocurra cualquiera de los siguientes supuestos: cambio de identidad del Responsable; incorporación de nuevas finalidades incompatibles con las originales; tratamiento de nuevos datos personales sensibles no previstos; incorporación de transferencias adicionales que requieran consentimiento; o cambios materiales en el mecanismo para el ejercicio de derechos ARCO que afecten su accesibilidad.</p>
+
+        <h3>12.2. Notificación de actualizaciones</h3>
+        <p>Las actualizaciones al Aviso se pondrán a disposición del titular mediante publicación en la Plataforma y/o mediante comunicación al correo registrado, cuando resulte aplicable. El <b>uso continuado de la Plataforma no sustituye</b> la obligación de recabar consentimiento expreso cuando este sea legalmente exigible.</p>
+
+        <h2 id="s13">13. Opciones y medios para limitar el uso o divulgación de los datos personales</h2>
+        <p>El titular podrá solicitar en cualquier momento la limitación del uso o divulgación de sus datos personales, cuando considere que el tratamiento realizado por el Responsable no se ajusta a lo necesario para las finalidades previstas en el presente Aviso.</p>
+        <p>La solicitud de limitación podrá presentarse mediante correo electrónico dirigido a <b><a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></b>, indicando:</p>
+        <ul>
+          <li>Nombre completo del titular.</li>
+          <li>Correo electrónico asociado a la cuenta.</li>
+          <li>Descripción clara de la limitación solicitada.</li>
+        </ul>
+        <p>El Responsable analizará la procedencia de la solicitud y comunicará su determinación dentro de un plazo máximo de <b>20 días hábiles</b>, aplicando la limitación correspondiente dentro de los <b>15 días hábiles siguientes</b>, cuando resulte procedente.</p>
+        <p>La limitación del uso o divulgación no procederá cuando el tratamiento sea necesario para el cumplimiento de obligaciones legales, contractuales o para la prestación del servicio tecnológico conforme a las finalidades primarias descritas en el presente Aviso.</p>
+        <p>Cuando la limitación solicitada se refiera al envío de comunicaciones promocionales, el titular podrá optar adicionalmente por utilizar los mecanismos de exclusión disponibles en cada comunicación electrónica enviada por el Responsable.</p>
+
+        <hr>
+
+        <h2 id="anexo1">Anexo 1 — Formato de Solicitud para el Ejercicio de Derechos ARCO</h2>
+
+        <div class="privacy-highlight">
+          <p>Para ejercer sus derechos ARCO (Acceso, Rectificación, Cancelación u Oposición), envíe este formato completo al correo <b><a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></b>.</p>
+        </div>
+
+        <p><b>Fecha de la solicitud:</b> ___________________________</p>
+        <p><b>Datos del titular</b><br>
+        Nombre completo: ____________________________________________<br>
+        Correo electrónico asociado a la cuenta: _________________________<br>
+        Teléfono de contacto (opcional): ________________________________</p>
+        <p><b>Relación con DEVIO:</b><br>
+        Desarrollador: ___ &nbsp;&nbsp; Usuario/Cliente final: ___</p>
+        <p><b>Derecho a ejercer (marque):</b><br>
+        Acceso: ___ &nbsp;&nbsp; Rectificación: ___ &nbsp;&nbsp; Cancelación: ___ &nbsp;&nbsp; Oposición: ___</p>
+        <p><b>Descripción clara de la solicitud</b> (indicar los datos respecto de los cuales se ejerce el derecho):</p>
+        <hr>
+        <p><b>En caso de rectificación,</b> indique el dato incorrecto y el dato correcto:</p>
+        <hr>
+        <p><b>Acreditación de identidad</b><br>
+        Adjunto copia simple de identificación oficial del titular: Sí ___ No ___<br>
+        En caso de representante, adjunto documento que acredite representación: Sí ___ No ___</p>
+        <p><b>Medio para recibir respuesta:</b><br>
+        Correo electrónico: ___ &nbsp;&nbsp; Otro: ________________________________</p>
+        <p>Nombre del solicitante: _________________________________________</p>
+        <p>Envío de solicitudes: <a href="mailto:contacto@deviomx.com">contacto@deviomx.com</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" />
+        </a>
+        <p>La plataforma SaaS que centraliza la operación de desarrolladoras inmobiliarias en México.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>Producto</h5>
+          <ul>
+            <li><a href="index.html#features">Funcionalidades</a></li>
+            <li><a href="index.html#benefits-client">App clientes</a></li>
+            <li><a href="index.html#benefits-dev">Beneficios</a></li>
+            <li><a href="index.html#how">Cómo funciona</a></li>
+            <li><a href="index.html#cta">Solicitar demo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="index.html#cta">Contacto</a></li>
+            <li><a href="privacidad.html">Privacidad</a></li>
+            <li><a href="terminos.html">Términos de uso</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-right-section">
+          <h5>Síguenos</h5>
+          <div class="fsocials">
+            <a href="https://instagram.com/deviomx" class="fsocial" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://facebook.com" class="fsocial" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-right-section">
+          <h5>Pagos seguros</h5>
+          <div class="fpay-logos">
+            <div class="fpay-badge" title="Stripe"><svg width="34" height="14" viewBox="0 0 34 14" fill="none"><text x="0" y="11" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">stripe</text></svg></div>
+            <div class="fpay-badge" title="Visa"><svg width="30" height="14" viewBox="0 0 30 14" fill="none"><text x="0" y="11" font-family="Arial, sans-serif" font-size="12" font-weight="900" fill="rgba(255,255,255,0.45)" letter-spacing="0.3">VISA</text></svg></div>
+            <div class="fpay-badge" title="Mastercard"><svg width="28" height="18" viewBox="0 0 28 18" fill="none"><circle cx="10" cy="9" r="8" fill="rgba(235,0,27,0.45)"/><circle cx="18" cy="9" r="8" fill="rgba(255,163,0,0.4)"/></svg></div>
+            <div class="fpay-badge" title="American Express"><svg width="36" height="14" viewBox="0 0 36 14" fill="none"><text x="0" y="11" font-family="Arial, sans-serif" font-size="9.5" font-weight="800" fill="rgba(255,255,255,0.45)" letter-spacing="0.3">AMEX</text></svg></div>
+          </div>
+          <a href="mailto:contacto@deviomx.com" class="footer-email">contacto@deviomx.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <span class="footer-gold">Devio</span>. Todos los derechos reservados.</p>
+      <p class="footer-copy">Hecho en México 🇲🇽</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.addEventListener('click', (e) => { if (e.target.tagName === 'A') mobileMenu.classList.remove('open'); });
+</script>
+</body>
+</html>
