@@ -732,10 +732,20 @@ section { padding: 112px 0; }
   content: '';
   position: absolute;
   top: 28px;
-  left: calc(16.66% + 14px);
-  right: calc(16.66% + 14px);
+  left: calc(16.66% + 28px);
+  right: calc(16.66% + 28px);
   height: 1px;
-  background: linear-gradient(90deg, var(--gold), rgba(var(--gold-rgb),0.15));
+  background: linear-gradient(90deg, rgba(var(--gold-rgb),0.2), var(--gold), rgba(var(--gold-rgb),0.2));
+}
+.step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 14px;
+  right: -10px;
+  font-size: 18px;
+  color: var(--gold2);
+  z-index: 3;
+  line-height: 1;
 }
 .step {
   display: flex;
@@ -1343,37 +1353,115 @@ footer {
 @media (max-width: 900px) {
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .dashboard-wrap { order: -1; margin-left: 0; margin-top: 0; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .problems-grid { grid-template-columns: 1fr; }
-  .solution-grid { grid-template-columns: 1fr; gap: 48px; }
-  .features-grid { grid-template-columns: 1fr 1fr; }
-  .steps { grid-template-columns: 1fr; gap: 40px; }
+
+  /* Hero */
+  #hero { min-height: auto; padding: 100px 0 48px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .hero-content { display: flex; flex-direction: column; align-items: center; }
+  .hero-sub { max-width: 100%; }
+  .hero-badge { justify-content: center; }
+  .hero-proof { justify-content: center; }
+  .dashboard-wrap { order: 1; margin-left: 0; margin-top: 0; animation: none; max-width: 500px; margin: 0 auto; overflow: hidden; border-radius: 12px; }
+  .browser-screen { width: 100%; margin-left: 0; }
+  .dashboard-glow { display: none; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat-number { font-size: 38px; }
+
+  /* Problems */
+  .problems-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  /* Solution */
+  .solution-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  /* Features */
+  .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Steps */
+  .steps { grid-template-columns: 1fr; gap: 32px; }
   .steps::before { display: none; }
-  .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
+  .step:not(:last-child)::after { display: none; }
+  .step { padding: 0 20px; }
+
+  /* Benefits dev */
+  .benefits-grid { grid-template-columns: 1fr; gap: 40px; }
   .metrics-panel { order: -1; }
+
+  /* App story */
   .app-story { height: auto; }
-  .app-story-sticky { position: static; height: auto; grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
-  .app-story-panels { min-height: 0; }
-  .app-panel { position: static; opacity: 1; transform: none; pointer-events: auto; display: none; }
+  .app-story-sticky { position: static; height: auto; grid-template-columns: 1fr; gap: 36px; padding: 56px 20px; }
+  .app-story-left { text-align: center; align-items: center; display: flex; flex-direction: column; }
+  .app-story-head { text-align: center; }
+  .app-story-panels { min-height: 0; width: 100%; }
+  .app-panel { position: static; opacity: 1; transform: none; pointer-events: auto; display: none; text-align: left; }
   .app-panel.active { display: block; }
-  .app-story-right { order: -1; }
-  .phone-story-shell { animation: none; transform: none; }
+  .story-dots { justify-content: center; margin-top: 20px; gap: 12px; }
+  .story-dot { width: 10px; height: 10px; }
+  .story-dot.active { width: 28px; }
+  .app-story-right { order: 1; display: flex; justify-content: center; }
+  .phone-story-shell { width: 210px; height: 418px; animation: none; transform: none; }
   .phone-ambient-glow { display: none; }
-  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .phone-reflection { display: none; }
+
+  /* CTA */
+  .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .cta-proof { flex-direction: column; gap: 10px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-nav { justify-content: flex-start; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
+
 @media (max-width: 580px) {
-  section { padding: 72px 0; }
+  section { padding: 56px 0; }
+  #hero { padding: 90px 0 40px; min-height: auto; }
+
+  /* Tipografía */
+  .hero-headline { font-size: clamp(38px, 10vw, 48px); letter-spacing: -0.02em; }
+  .section-title { font-size: clamp(32px, 8vw, 40px); }
+  .section-sub { font-size: 14px; }
+  .stat-number { font-size: 34px; }
+  .stat-label { font-size: 12px; }
+
+  /* Hero */
+  .hero-actions { flex-direction: column; align-items: center; gap: 10px; }
+  .hero-actions .btn { text-align: center; justify-content: center; width: 100%; max-width: 280px; }
+  .hero-sub { font-size: 14px; margin-bottom: 24px; text-align: center; }
+  .dashboard-wrap { max-width: 360px; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat-item { padding: 20px 12px; }
+
+  /* Features */
   .features-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-headline { font-size: clamp(30px, 8vw, 42px); }
-  .footer-nav { flex-direction: row; gap: 28px; }
-  .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-  .wa-float svg { width: 24px; height: 24px; }
+  .feature-card { padding: 24px 20px; }
+
+  /* Steps */
+  .step { padding: 0; }
+
+  /* Phone */
+  .phone-story-shell { width: 180px; height: 358px; }
+  .section-header { text-align: center; align-items: center; }
+  .benefits-grid > div:first-child { text-align: center; align-items: center; display: flex; flex-direction: column; }
+  .benefit-list { text-align: left; }
+
+  /* Forms */
+  .demo-form { padding: 24px 20px; }
+
+  /* Footer */
+  .footer-nav { flex-direction: row; gap: 28px; flex-wrap: wrap; }
+
+  /* WhatsApp */
+  .wa-float { bottom: 16px; right: 16px; width: 48px; height: 48px; }
+  .wa-float svg { width: 22px; height: 22px; }
+  .wa-label { display: none; }
+
+  /* Legal */
+  .privacy-layout { grid-template-columns: 1fr; gap: 24px; }
+  .privacy-index { display: none; }
 }
 .wa-float {
   position: fixed;

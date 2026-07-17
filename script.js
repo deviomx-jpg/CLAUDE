@@ -148,6 +148,13 @@ window.addEventListener('load', () => {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      current = -1;
+      setStep(i);
+    });
+  });
 })();
 
 setTimeout(() => {
