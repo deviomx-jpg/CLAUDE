@@ -686,6 +686,29 @@ section { padding: 112px 0; }
 .feature-card:hover .feature-icon svg { stroke: var(--gold2); }
 .feature-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.01em; }
 .feature-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.75; }
+.feature-card--featured {
+  border-color: rgba(var(--gold-rgb),0.3);
+  background: linear-gradient(160deg, rgba(var(--gold-rgb),0.05) 0%, var(--white) 60%);
+  box-shadow: 0 4px 24px rgba(var(--gold-rgb),0.10), 0 1px 4px rgba(var(--navy-rgb),0.04);
+}
+.feature-card--featured::before { opacity: 1; }
+.feature-card--featured .feature-icon {
+  background: rgba(var(--gold-rgb),0.14);
+}
+.feature-card--featured .feature-icon svg { stroke: var(--gold2); }
+.feature-card-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  background: rgba(var(--gold-rgb),0.12);
+  border: 1px solid rgba(var(--gold-rgb),0.25);
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-bottom: 16px;
+}
 
 #how {
   background-color: var(--white);
