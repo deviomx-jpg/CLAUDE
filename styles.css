@@ -33,9 +33,9 @@
   --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 html { scroll-behavior: smooth; }
-h1, h2, h3, h4, h5, h6,
+h1, h2,
 .hero-headline, .section-title, .stat-number,
-.nav-logo, .form-title, .tag {
+.form-title {
   font-family: 'PowerGrotesk', system-ui, sans-serif;
   font-weight: 400;
 }
@@ -225,7 +225,7 @@ nav.scrolled {
   align-items: center;
   position: relative;
   overflow: clip;
-  padding: 156px 0 96px;
+  padding: 120px 0 64px;
 }
 .hero-bg {
   position: absolute;
@@ -314,7 +314,7 @@ nav.scrolled {
   color: var(--white);
   letter-spacing: -0.04em;
   line-height: 1.04;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 .hero-headline em {
   font-style: normal;
@@ -333,7 +333,7 @@ nav.scrolled {
   font-size: 17px;
   color: rgba(var(--gray-rgb),0.55);
   line-height: 1.75;
-  margin-bottom: 44px;
+  margin-bottom: 32px;
   max-width: 460px;
   font-weight: 400;
 }
@@ -356,30 +356,19 @@ nav.scrolled {
 .hero-proof {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
 }
-.hero-proof-divider {
-  width: 1px;
-  height: 28px;
-  background: rgba(var(--white-rgb),0.12);
+.hero-proof-icon {
+  width: 15px;
+  height: 15px;
+  stroke: var(--gold2);
+  flex-shrink: 0;
 }
-.hero-avatars { display: flex; }
-.hero-avatar {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 2px solid var(--navy3);
-  background: linear-gradient(135deg, var(--gold), #99876D);
-  margin-left: -8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--white);
+.hero-proof-text {
+  font-size: 13px;
+  color: rgba(var(--gray-rgb), 0.45);
+  line-height: 1.4;
 }
-.hero-avatars .hero-avatar:first-child { margin-left: 0; }
-.hero-proof-text { font-size: 13px; color: rgba(var(--gray-rgb),0.45); line-height: 1.4; }
-.hero-proof-text strong { color: rgba(var(--gold-rgb),0.9); font-weight: 600; display: block; margin-bottom: 1px; }
 
 .dashboard-wrap {
   position: relative;
