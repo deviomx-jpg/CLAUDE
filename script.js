@@ -82,8 +82,9 @@ leadForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const fname = document.getElementById('fname').value.trim();
   const femail = document.getElementById('femail').value.trim();
+  const fphone = document.getElementById('fphone').value.trim();
   const fcompany = document.getElementById('fcompany').value.trim();
-  if (!fname || !femail || !fcompany) {
+  if (!fname || !femail || !fphone || !fcompany) {
     const inputs = leadForm.querySelectorAll('input[required]');
     inputs.forEach(input => {
       if (!input.value.trim()) {

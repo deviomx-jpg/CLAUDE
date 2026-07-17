@@ -353,23 +353,6 @@ nav.scrolled {
   transition: opacity .2s;
 }
 .btn-gold:hover::before { opacity: 1; }
-.hero-proof {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.hero-proof-icon {
-  width: 15px;
-  height: 15px;
-  stroke: var(--gold2);
-  flex-shrink: 0;
-}
-.hero-proof-text {
-  font-size: 13px;
-  color: rgba(var(--gray-rgb), 0.45);
-  line-height: 1.4;
-}
-
 .dashboard-wrap {
   position: relative;
   animation: float 6s ease-in-out infinite;
@@ -938,7 +921,6 @@ section { padding: 112px 0; }
   gap: 32px;
   position: relative;
 }
-.app-story-head .tag { display: inline-block; }
 .app-story-head .section-title { margin-top: 8px; color: var(--navy); }
 .app-story-panels { position: relative; min-height: 320px; }
 .app-panel {
@@ -1364,7 +1346,6 @@ footer {
 }
 .footer-email:hover { color: var(--gold); }
 .mobile-menu-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
-.hero-avatar-extra { background: linear-gradient(135deg, #577A8B, #162B3F); }
 
 @media (max-width: 900px) {
   .nav-links, .nav-cta { display: none; }
@@ -1398,7 +1379,6 @@ footer {
   .steps { grid-template-columns: 1fr; gap: 32px; }
   .steps::before { display: none; }
   .steps::after { display: none; }
-  .step:not(:last-child)::after { display: none; }
   .step { padding: 0 20px; }
 
   /* Benefits dev */
