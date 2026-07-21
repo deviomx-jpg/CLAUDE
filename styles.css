@@ -102,6 +102,10 @@ h1, h2, h3 { line-height: 1.2; }
 .anim-delay-2 { transition-delay: .16s; }
 .anim-delay-3 { transition-delay: .24s; }
 .anim-delay-4 { transition-delay: .32s; }
+.anim--left  { transform: translateX(-32px); }
+.anim--right { transform: translateX(32px); }
+.anim--down  { transform: translateY(-28px); }
+.anim--scale { transform: scale(0.97) translateY(18px); }
 
 @keyframes float {
   0%, 100% { transform: scale(1.05) translateY(0px); }
