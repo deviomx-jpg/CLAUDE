@@ -19,6 +19,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="Assets/Mockups/DEVIO PITCH DECK.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="Assets/Fonts/PowerGrotesk-Regular.ttf" as="font" type="font/truetype" crossorigin />
+  <link rel="dns-prefetch" href="https://formspree.io" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -27,7 +30,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" />
+        <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" width="300" height="100" decoding="async" />
       </a>
       <ul class="nav-links">
         <li><a href="#features">Funciones</a></li>
@@ -94,6 +97,10 @@
           alt="Devio — Pitch Deck"
           class="browser-screen"
           loading="eager"
+          fetchpriority="high"
+          decoding="sync"
+          width="1920"
+          height="1080"
           draggable="false"
         />
       </div>
@@ -363,19 +370,19 @@
           <div class="phone-story-slides">
 
             <div class="phone-story-slide ph-slide-img active" data-slide="0">
-              <img src="Assets/App Mobile/Avance de obra.jpg" alt="Avance de obra" loading="lazy" draggable="false" />
+              <img src="Assets/App Mobile/Avance de obra.jpg" alt="Avance de obra" loading="eager" decoding="async" width="600" height="1212" draggable="false" />
             </div>
 
             <div class="phone-story-slide ph-slide-img" data-slide="1">
-              <img src="Assets/App Mobile/App_Mobile_edc.png" alt="Estado de cuenta" loading="lazy" draggable="false" />
+              <img src="Assets/App Mobile/App_Mobile_edc.png" alt="Estado de cuenta" loading="lazy" decoding="async" width="600" height="1134" draggable="false" />
             </div>
 
             <div class="phone-story-slide ph-slide-img" data-slide="2">
-              <img src="Assets/App Mobile/App_Mobile_docsc.png" alt="Documentos" loading="lazy" draggable="false" />
+              <img src="Assets/App Mobile/App_Mobile_docsc.png" alt="Documentos" loading="lazy" decoding="async" width="600" height="1201" draggable="false" />
             </div>
 
             <div class="phone-story-slide ph-slide-img" data-slide="3">
-              <img src="Assets/App Mobile/App_Mobile_PantallaInicio.png" alt="Notificaciones" loading="lazy" draggable="false" />
+              <img src="Assets/App Mobile/App_Mobile_PantallaInicio.jpg" alt="Notificaciones" loading="lazy" decoding="async" width="600" height="1297" draggable="false" />
             </div>
 
           </div>
@@ -636,7 +643,7 @@
 
       <div class="footer-brand">
         <a href="#" class="nav-logo">
-          <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" />
+          <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" width="300" height="100" loading="lazy" decoding="async" />
         </a>
         <p>La plataforma SaaS que centraliza la operación de desarrolladoras inmobiliarias en México.</p>
       </div>
@@ -712,7 +719,7 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 <a id="waFloat"
    href="https://wa.me/5215500000000?text=Hola%2C%20me%20interesa%20conocer%20Devio%20y%20agendar%20una%20demo."
