@@ -100,7 +100,6 @@ h1, h2, h3 { line-height: 1.2; }
 .anim-delay-2 { transition-delay: .16s; }
 .anim-delay-3 { transition-delay: .24s; }
 .anim-delay-4 { transition-delay: .32s; }
-.anim--left  { transform: translateX(-32px); }
 .anim--right { transform: translateX(32px); }
 .anim--down  { transform: translateY(-28px); }
 .anim--scale { transform: scale(0.97) translateY(18px); }
@@ -368,15 +367,7 @@ nav.scrolled {
   background: radial-gradient(ellipse at 50% 50%, rgba(var(--gold-rgb),0.10) 0%, rgba(var(--navy-rgb),0.22) 45%, transparent 65%);
   pointer-events: none;
 }
-.dashboard-wrap::before {
-  content: none;
-  position: absolute;
-  bottom: -12px; left: 5%; right: 5%;
-  height: 28px;
-  background: radial-gradient(ellipse at center, rgba(var(--gold-rgb),0.35) 0%, transparent 70%);
-  filter: blur(10px);
-  pointer-events: none;
-}
+.dashboard-wrap::before { content: none; }
 .browser-screen {
   width: 192%;
   height: auto;
@@ -1075,29 +1066,6 @@ section { padding: 112px 0; }
   filter: blur(8px);
   pointer-events: none; z-index: 0;
 }
-.ph-screen-header { margin-bottom: 13px; }
-.ph-screen-title { font-size: 12px; font-weight: 700; color: var(--white); }
-.ph-screen-sub { font-size: 9px; color: rgba(var(--white-rgb),0.38); margin-top: 2px; }
-.ph-progress-card {
-  background: rgba(var(--white-rgb),0.06); border: 1px solid rgba(var(--white-rgb),0.1);
-  border-radius: 12px; padding: 13px; margin-bottom: 9px;
-}
-.ph-card-title { font-size: 8.5px; font-weight: 700; color: rgba(var(--white-rgb),0.85); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .05em; }
-.ph-prog-bar { height: 5px; background: rgba(var(--white-rgb),0.08); border-radius: 100px; margin-bottom: 8px; overflow: hidden; }
-.ph-prog-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--gold), rgba(var(--gold-rgb),0.55)); }
-.ph-mini-stats { display: flex; justify-content: space-between; }
-.ph-mini-stat-l { font-size: 7.5px; color: rgba(var(--white-rgb),0.32); margin-bottom: 2px; }
-.ph-mini-stat-v { font-size: 9.5px; font-weight: 600; color: rgba(var(--white-rgb),0.8); }
-.ph-payment-card {
-  background: rgba(var(--gold-rgb),0.1); border: 1px solid rgba(var(--gold-rgb),0.22);
-  border-radius: 12px; padding: 13px; margin-bottom: 9px;
-}
-.ph-pay-label { font-size: 8px; color: var(--gold); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; margin-bottom: 4px; }
-.ph-pay-amount { font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
-.ph-pay-due { font-size: 8px; color: rgba(var(--white-rgb),0.38); margin-top: 3px; }
-.ph-notif { background: rgba(var(--white-rgb),0.04); border: 1px solid rgba(var(--white-rgb),0.07); border-radius: 10px; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
-.ph-notif-dot { width: 7px; height: 7px; min-width: 7px; border-radius: 50%; background: #6FAC9C; flex-shrink: 0; }
-.ph-notif-text { font-size: 8px; color: rgba(var(--white-rgb),0.52); line-height: 1.4; }
 .ph-slide-img { padding: 0; }
 .ph-slide-img img {
   width: 100%;
