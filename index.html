@@ -20,8 +20,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" /></noscript>
-  <link rel="preload" href="Assets/Logo/imagotipo-clean.png" as="image" fetchpriority="high" />
-  <link rel="preload" href="Assets/Mockups/DEVIO PITCH DECK.png" as="image" />
+  <link rel="preload" href="Assets/Logo/imagotipo-clean.png" as="image" />
+  <link rel="preload" href="Assets/Mockups/DEVIO PITCH DECK.webp" as="image" type="image/webp" fetchpriority="high" />
   <link rel="preload" href="Assets/Fonts/PowerGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="dns-prefetch" href="https://formspree.io" />
   <link rel="stylesheet" href="styles.css" />
@@ -134,17 +134,20 @@
 
       <div class="dashboard-wrap anim anim-delay-2">
         <div class="dashboard-glow"></div>
-        <img
-          src="Assets/Mockups/DEVIO PITCH DECK.png"
-          alt="Devio — Pitch Deck"
-          class="browser-screen"
-          loading="eager"
-          fetchpriority="high"
-          decoding="sync"
-          width="1920"
-          height="1080"
-          draggable="false"
-        />
+        <picture>
+          <source srcset="Assets/Mockups/DEVIO PITCH DECK.webp" type="image/webp" />
+          <img
+            src="Assets/Mockups/DEVIO PITCH DECK.png"
+            alt="Devio — Pitch Deck"
+            class="browser-screen"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
+            width="1920"
+            height="1080"
+            draggable="false"
+          />
+        </picture>
       </div>
     </div>
   </div>
