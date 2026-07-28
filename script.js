@@ -43,7 +43,7 @@ function animateCounter(el) {
     const progress = Math.min(elapsed / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = Math.round(eased * target);
-    el.textContent = current >= 1000 ? (current).toLocaleString('es-MX') : current;
+    el.textContent = current >= 1000 ? current.toLocaleString('es-MX') : current;
     if (progress < 1) requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
@@ -98,11 +98,15 @@ leadForm.addEventListener('submit', async (e) => {
   btn.disabled = true;
   btn.textContent = 'Enviando…';
   const data = new FormData(leadForm);
-  const res = await fetch('https://formspree.io/f/mqerzdna', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-  if (res.ok) {
-    leadForm.style.display = 'none';
-    formSuccess.style.display = 'block';
-  } else {
+  try {
+    const res = await fetch('https://formspree.io/f/mqerzdna', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+    if (res.ok) {
+      leadForm.style.display = 'none';
+      formSuccess.style.display = 'block';
+    } else {
+      throw new Error('server');
+    }
+  } catch {
     btn.disabled = false;
     btn.textContent = 'Solicitar demo gratuita →';
     alert('Hubo un error al enviar. Intenta de nuevo o contáctanos por WhatsApp.');
