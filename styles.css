@@ -1329,6 +1329,11 @@ footer {
 .mobile-menu-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
 
 @media (max-width: 900px) {
+  .anim-delay-1 { transition-delay: .04s; }
+  .anim-delay-2 { transition-delay: .08s; }
+  .anim-delay-3 { transition-delay: .12s; }
+  .anim-delay-4 { transition-delay: .16s; }
+
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
 
