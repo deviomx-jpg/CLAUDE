@@ -1413,7 +1413,7 @@ footer {
   .hero-actions { flex-direction: column; align-items: center; gap: 10px; }
   .hero-actions .btn { text-align: center; justify-content: center; width: 100%; max-width: 280px; }
   .hero-sub { font-size: 14px; margin-bottom: 24px; text-align: center; }
-  .dashboard-wrap { max-width: 100%; }
+  .dashboard-wrap { max-width: none; width: calc(100% + 48px); margin-left: -24px; margin-right: -24px; border-radius: 0; }
 
   /* Stats */
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
