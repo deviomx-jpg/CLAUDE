@@ -1338,6 +1338,13 @@ footer {
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
 
+  /* Performance: disable expensive GPU effects on mobile */
+  .anim { will-change: auto; }
+  .hero-circle { display: none; }
+  .hero-grid-lines { display: none; }
+  .hero-headline em { animation: none; background-position: 0% center; }
+  .hero-badge-dot { animation: none; }
+
   /* Hero */
   #hero { min-height: auto; padding: 100px 0 48px; }
   .hero-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }

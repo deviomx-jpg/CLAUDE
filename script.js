@@ -165,4 +165,4 @@ window.addEventListener('load', () => {
 setTimeout(() => {
   const btn = document.getElementById('waFloat');
   if (btn) btn.classList.add('wa-visible');
-}, 600);
+}, 200);
