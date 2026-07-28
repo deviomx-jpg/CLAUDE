@@ -20,7 +20,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" /></noscript>
-  <link rel="preload" href="Assets/Mockups/DEVIO PITCH DECK.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="Assets/Logo/imagotipo-clean.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="Assets/Mockups/DEVIO PITCH DECK.png" as="image" />
   <link rel="preload" href="Assets/Fonts/PowerGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="dns-prefetch" href="https://formspree.io" />
   <link rel="stylesheet" href="styles.css" />
@@ -71,7 +72,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" width="300" height="100" decoding="async" />
+        <img src="Assets/Logo/imagotipo-clean.png" alt="Devio" width="300" height="100" decoding="sync" fetchpriority="high" />
       </a>
       <ul class="nav-links">
         <li><a href="#features">Funciones</a></li>
