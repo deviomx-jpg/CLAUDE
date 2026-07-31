@@ -1397,9 +1397,12 @@ footer {
   .cta-proof { flex-direction: column; gap: 10px; }
 
   /* Footer */
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-nav { justify-content: flex-start; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-right { align-items: flex-start; justify-self: start; }
+  .footer-right-section { align-items: flex-start; }
+  .footer-apps { justify-content: flex-start; margin-top: 2px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 }
 
 @media (max-width: 580px) {
