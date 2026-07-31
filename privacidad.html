@@ -12,7 +12,7 @@
   <style>
     .privacy-header {
       background: linear-gradient(145deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy2) 100%);
-      padding: 140px 0 72px;
+      padding: 140px 0 0;
       position: relative;
       overflow: hidden;
     }
@@ -25,17 +25,16 @@
       background-size: 256px 256px;
     }
     .privacy-header-inner { position: relative; z-index: 1; }
-    .privacy-header .tag { margin-bottom: 20px; }
+    .privacy-header .tag { margin-bottom: 8px; }
     .privacy-header h1 {
       font-size: clamp(32px, 4vw, 52px);
       font-weight: 800;
       color: var(--white);
       letter-spacing: -0.03em;
       line-height: 1.1;
-      margin-bottom: 16px;
+      margin-bottom: 0;
     }
-    .privacy-header p { font-size: 15px; color: rgba(230,233,239,0.6); margin-top: 8px; }
-    .privacy-body { background: var(--white); padding: 80px 0 120px; }
+    .privacy-body { background: var(--white); padding: 0 0 120px; }
     .privacy-layout {
       display: grid;
       grid-template-columns: 220px 1fr;
@@ -112,9 +111,11 @@
     }
     .privacy-highlight p { margin-bottom: 0; }
     @media (max-width: 900px) {
-      .privacy-header { padding: 100px 0 40px; }
-      .privacy-body { padding: 40px 0 72px; }
-      .privacy-layout { grid-template-columns: 1fr; gap: 24px; }
+      .privacy-header { padding: 100px 0 32px; }
+      .privacy-header .tag { margin-bottom: 12px; }
+      .privacy-header h1 { margin-bottom: 0; }
+      .privacy-body { padding: 28px 0 80px; }
+      .privacy-layout { grid-template-columns: 1fr; gap: 32px; }
       .privacy-index { position: static; }
     }
   </style>
@@ -159,7 +160,6 @@
   <div class="container privacy-header-inner">
     <span class="tag">Legal</span>
     <h1>Aviso de Privacidad Integral</h1>
-    <p>Plataforma "DEVIO"</p>
   </div>
 </div>
 
